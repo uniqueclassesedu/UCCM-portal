@@ -1,0 +1,3623 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="pageTitle">Unique Coaching Classes (UCC) Megha • डिजिटल लर्निंग पोर्टल</title>
+    <meta name="theme-color" content="#031b4d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="UCC Portal">
+
+    <style>
+        :root {
+            --ucc-navy: #031b4d;
+            --ucc-navy-dark: #021235;
+            --ucc-blue: #1d4ed8;
+            --ucc-blue-light: #eff6ff;
+            --ucc-slate: #0f172a;
+            --ucc-text-muted: #64748b;
+            --ucc-border: #e2e8f0;
+            --ucc-green: #16a34a;
+            --ucc-amber: #d97706;
+            --ucc-red: #dc2626;
+            --ucc-purple: #9333ea;
+            --card-radius: 18px;
+            --shadow-subtle: 0 4px 20px -2px rgba(3, 27, 77, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 10px 30px -3px rgba(3, 27, 77, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #021235 0%, #031b4d 60%, #082a7a 100%);
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 20px rgba(2, 18, 53, 0.25);
+        }
+        .header-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+        .logo-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            overflow: hidden;
+            background: #031b4d;
+        }
+        .brand-text {
+            min-width: 0;
+        }
+        .brand-text h1 {
+            font-size: 15px;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .brand-text p {
+            font-size: 11px;
+            color: #93c5fd;
+            margin-top: 2px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .student-header-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            font-weight: 800;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+        .logout-chip {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #fca5a5;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .logout-chip:hover {
+            background: rgba(239, 68, 68, 0.35);
+            color: #ffffff;
+        }
+
+        /* NAVIGATION TABS */
+        nav {
+            background: #010b24;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            padding: 6px 12px;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-btn.active {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        /* MAIN WRAPPER */
+        main {
+            flex: 1;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* CARDS */
+        .card {
+            background: #ffffff;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--ucc-border);
+            margin-bottom: 16px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        /* FORMS */
+        .form-group {
+            margin-bottom: 14px;
+        }
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: 900;
+            color: #475569;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1.5px solid #cbd5e1;
+            font-size: 14px;
+            background: #f8fafc;
+            color: #0f172a;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            width: 100%;
+            padding: 13px 18px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+        }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-green { background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); box-shadow: 0 4px 12px rgba(22,163,74,0.25); }
+        .btn-amber { background: linear-gradient(135deg, #b45309 0%, #d97706 100%); box-shadow: 0 4px 12px rgba(217,119,6,0.25); }
+        .btn-red { background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%); box-shadow: 0 4px 12px rgba(220,38,38,0.25); }
+        .btn-slate { background: #475569; box-shadow: none; color: #ffffff; }
+        .btn-outline {
+            background: transparent;
+            color: #1d4ed8;
+            border: 1.5px solid #bfdbfe;
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: #eff6ff; }
+
+        /* BADGES */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .badge-blue { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .badge-white { background: #ffffff; color: #031b4d; border: 1px solid #cbd5e1; }
+        .badge-green { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .badge-amber { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .badge-red { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .badge-gold { background: #fef08a; color: #854d0e; border: 1.5px solid #eab308; }
+
+        /* AUTH TABS */
+        .auth-tab-switch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            gap: 4px;
+        }
+        .auth-tab-btn {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            background: transparent;
+            color: #475569;
+            transition: all 0.2s;
+        }
+        .auth-tab-btn.active {
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* CBT TIMER STRIP */
+        .timer-strip {
+            background: linear-gradient(135deg, #021235 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 12px 18px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-weight: 800;
+            box-shadow: var(--shadow-subtle);
+        }
+        .timer-val {
+            color: #ffffff;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 18px;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* CBT OPTIONS */
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #cbd5e1;
+            background: #f8fafc;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            transition: all 0.15s ease;
+        }
+        .option-btn:hover {
+            border-color: #93c5fd;
+            background: #ffffff;
+        }
+        .option-btn.selected {
+            border-color: #2563eb;
+            background: #eff6ff;
+            color: #1e40af;
+            font-weight: 800;
+            box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+        }
+        .option-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 12px;
+            flex-shrink: 0;
+            transition: all 0.15s;
+        }
+        .option-btn.selected .option-circle {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        /* PALETTE GRID */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .pal-btn {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            border: 1.5px solid #cbd5e1;
+            background: #f8fafc;
+            font-weight: 900;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+        .pal-btn.active-q { border: 2.5px solid #2563eb; transform: scale(1.05); }
+        .pal-btn.answered { background: #16a34a; color: #ffffff; border-color: #15803d; }
+        .pal-btn.reviewed { background: #9333ea; color: #ffffff; border-color: #7e22ce; }
+        .pal-btn.locked { background: #d97706; color: #ffffff; border-color: #b45309; }
+
+        /* SCORECARD */
+        .scorecard-hero {
+            background: linear-gradient(135deg, #021235 0%, #031b4d 50%, #0a2f8c 100%);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(2, 18, 53, 0.35);
+            margin-bottom: 16px;
+        }
+        .scorecard-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .score-circle-wrapper {
+            margin: 16px auto 12px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.04) 100%);
+            border: 3px solid rgba(255,255,255,0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+        .score-big-num {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+        .score-big-denom {
+            font-size: 13px;
+            font-weight: 700;
+            color: #93c5fd;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .score-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        @media (min-width: 640px) {
+            .score-stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .stat-tile {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+        }
+        .stat-tile-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .stat-tile-val {
+            font-size: 20px;
+            font-weight: 900;
+            margin-top: 4px;
+        }
+
+        .feedback-banner {
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            border: 1.5px solid transparent;
+        }
+
+        /* SOLUTION FILTERS */
+        .filter-strip {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .filter-chip {
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s;
+        }
+        .filter-chip.active {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        .solution-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.15s;
+        }
+        .solution-card.correct { border-left: 5px solid #16a34a; }
+        .solution-card.incorrect { border-left: 5px solid #dc2626; }
+        .solution-card.unanswered { border-left: 5px solid #94a3b8; }
+
+        /* TEST HISTORY CARD */
+        .history-card {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s ease;
+        }
+        .history-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: #bfdbfe;
+        }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(6px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-box {
+            background: #ffffff;
+            border-radius: 22px;
+            max-width: 620px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* STUDENT TABLE STYLES */
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        .admin-table th, .admin-table td {
+            padding: 8px 10px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .admin-table th {
+            background: #f1f5f9;
+            font-weight: 900;
+            color: #334155;
+        }
+
+        /* ADMIN SNAPSHOT METRIC TILES */
+        .adm-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        @media (min-width: 640px) {
+            .adm-stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .adm-stat-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 12px;
+            text-align: center;
+        }
+        .adm-stat-card-title {
+            font-size: 10px;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+        .adm-stat-card-val {
+            font-size: 18px;
+            font-weight: 900;
+            color: #0f172a;
+            margin-top: 2px;
+        }
+
+        /* NOTES CATEGORY BOX */
+        .notes-cat-group {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 14px;
+            box-shadow: var(--shadow-subtle);
+        }
+        .notes-cat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #021235;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 11px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: auto;
+        }
+        .footer-copy {
+            color: #f8fafc;
+            font-weight: 800;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        .admin-footer-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px dashed rgba(255,255,255,0.25);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .admin-footer-btn:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .hidden { display: none !important; }
+
+        @media print {
+            header, nav, footer, .filter-strip, .btn-primary, .admin-footer-btn, .action-grid { display: none !important; }
+            body, main { background: #ffffff !important; color: #000000 !important; }
+            .card, .scorecard-hero { box-shadow: none !important; border: 1px solid #ccc !important; }
+            .scorecard-hero { background: #031b4d !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <header>
+        <div class="header-wrap">
+            <div class="brand-container">
+                <div class="logo-box">
+                    <svg viewBox="0 0 500 500" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="250" cy="250" r="240" fill="#031b4d"/>
+                        <circle cx="250" cy="250" r="226" fill="#082a7a"/>
+                        <circle cx="250" cy="250" r="214" stroke="#ffffff" stroke-width="8" fill="none"/>
+                        <polygon points="175,130 235,152 175,174 115,152" fill="#ffffff" />
+                        <path d="M 142 158 L 142 178 C 142 188, 208 188, 208 178 L 208 158 Z" fill="#ffffff" />
+                        <path d="M 128 154 Q 126 185, 128 200" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <circle cx="128" cy="204" r="5" fill="#ffffff" />
+                        <path d="M 145 190 L 175 190 L 175 255 C 175 285, 205 285, 205 255 L 205 190 L 235 190 L 235 260 C 235 315, 145 315, 145 260 Z" fill="#ffffff"/>
+                        <text x="240" y="278" font-family="Arial, sans-serif" font-weight="900" font-size="64" fill="#ffffff">NIQUE</text>
+                        <path d="M 245 220 C 285 190, 335 190, 370 208 C 335 205, 290 208, 245 220 Z" fill="#ffffff"/>
+                        <polygon points="330,172 333,182 343,185 333,188 330,198 327,188 317,185 327,182" fill="#ffffff" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1 id="headerInstTitle">Unique Coaching Classes</h1>
+                    <p id="headerInstSubtitle">मेघा, धमतरी (छ.ग.) • डिजिटल लर्निंग पोर्टल</p>
+                </div>
+            </div>
+
+            <!-- Student Profile Badge -->
+            <div id="studentBadge" class="hidden student-header-badge">
+                <span style="display:inline-block; width:8px; height:8px; background:#4ade80; border-radius:50%;"></span>
+                <span id="badgeName">छात्र</span>
+                <button onclick="logoutStudent()" class="logout-chip" title="लॉगआउट">✕ लॉगआउट</button>
+            </div>
+        </div>
+
+        <!-- APP NAVIGATION TABS (Shown after login) -->
+        <nav id="appNavBar" class="hidden">
+            <div class="nav-inner">
+                <button class="nav-btn active" id="tabBtn_tests" onclick="switchTab('tests')">
+                    💻 CBT टेस्ट केंद्र
+                </button>
+                <button class="nav-btn" id="tabBtn_history" onclick="switchTab('history')">
+                    📊 मेरा परीक्षा इतिहास
+                </button>
+                <button class="nav-btn" id="tabBtn_notes" onclick="switchTab('notes')">
+                    📖 ई-नोट्स व DPP लाइब्रेरी
+                </button>
+                <button class="nav-btn" id="tabBtn_contact" onclick="switchTab('contact')">
+                    📍 केंद्र व संपर्क
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN BODY -->
+    <main>
+
+        <!-- RESUME ACTIVE EXAM BANNER (SHOWN IF ACCIDENTAL RELOAD HAPPENED) -->
+        <div id="resumeActiveExamBanner" class="hidden card" style="background: #fffbeb; border: 2px solid #f59e0b; padding: 16px 20px; margin-bottom: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 26px;">⚠️</span>
+                    <div>
+                        <h4 style="font-size: 14px; font-weight: 900; color: #92400e;">आपकी एक परीक्षा अधूरी छूट गई थी!</h4>
+                        <p style="font-size: 12px; color: #78350f; margin-top: 2px;">
+                            <strong id="resumeTestTitleText">मॉक टेस्ट</strong> के आपके सभी टिक किए हुए उत्तर और बचा हुआ समय सुरक्षित है।
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="discardActiveSession()" style="padding: 8px 14px; border-radius: 10px; border: 1.5px solid #cbd5e1; background: #ffffff; color: #64748b; font-weight: 800; font-size: 12px; cursor: pointer;">
+                        रद्द करें
+                    </button>
+                    <button onclick="resumeExistingExam()" class="btn-primary btn-amber" style="width: auto; padding: 8px 18px; font-size: 12px;">
+                        ▶ परीक्षा वहीं से जारी रखें
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 1: AUTH GATEWAY (REGISTRATION OR LOGIN) -->
+        <section id="viewLogin" class="card" style="max-width: 480px; margin: 24px auto; padding: 26px 22px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div class="logo-box" style="width: 64px; height: 64px; margin: 0 auto 12px; border-width: 3px;">
+                    <svg viewBox="0 0 500 500" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="250" cy="250" r="240" fill="#031b4d"/>
+                        <circle cx="250" cy="250" r="226" fill="#082a7a"/>
+                        <circle cx="250" cy="250" r="214" stroke="#ffffff" stroke-width="8" fill="none"/>
+                        <polygon points="175,130 235,152 175,174 115,152" fill="#ffffff" />
+                        <path d="M 142 158 L 142 178 C 142 188, 208 188, 208 178 L 208 158 Z" fill="#ffffff" />
+                        <path d="M 128 154 Q 126 185, 128 200" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <circle cx="128" cy="204" r="5" fill="#ffffff" />
+                        <path d="M 145 190 L 175 190 L 175 255 C 175 285, 205 285, 205 255 L 205 190 L 235 190 L 235 260 C 235 315, 145 315, 145 260 Z" fill="#ffffff"/>
+                        <text x="240" y="278" font-family="Arial, sans-serif" font-weight="900" font-size="64" fill="#ffffff">NIQUE</text>
+                        <path d="M 245 220 C 285 190, 335 190, 370 208 C 335 205, 290 208, 245 220 Z" fill="#ffffff"/>
+                        <polygon points="330,172 333,182 343,185 333,188 330,198 327,188 317,185 327,182" fill="#ffffff" />
+                    </svg>
+                </div>
+                <h2 style="font-size: 19px; font-weight: 900; color: #0f172a;" id="loginCardTitle">Unique Coaching Classes</h2>
+                <p style="font-size: 12px; color: #64748b; margin-top: 3px;" id="loginCardSubtitle">विद्यार्थी डिजिटल पोर्टल में आपका स्वागत है</p>
+            </div>
+
+            <!-- 2-Option Switch Bar -->
+            <div class="auth-tab-switch">
+                <button type="button" class="auth-tab-btn" id="btnAuthTabReg" onclick="switchAuthMode('reg')">
+                    📝 नया पंजीकरण
+                </button>
+                <button type="button" class="auth-tab-btn active" id="btnAuthTabLogin" onclick="switchAuthMode('login')">
+                    🔑 विद्यार्थी लॉगिन
+                </button>
+            </div>
+
+            <!-- FORM 1: FIRST TIME REGISTRATION -->
+            <form id="studentRegisterForm" class="hidden">
+                <div class="form-group">
+                    <label id="lblRegName">विद्यार्थी का पूरा नाम (Full Name) *</label>
+                    <input type="text" id="regName" required placeholder="उदा. अमन साहू">
+                </div>
+
+                <div class="form-group">
+                    <label id="lblRegMobile">WhatsApp मोबाइल नंबर *</label>
+                    <input type="tel" id="regMobile" required pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का WhatsApp नंबर">
+                </div>
+
+                <div class="form-group">
+                    <label id="lblRegSession">सत्र (Session) *</label>
+                    <select id="regSession"></select>
+                </div>
+
+                <div class="form-group">
+                    <label id="lblRegAddress">गाँव / पूरा पता (Address) *</label>
+                    <input type="text" id="regAddress" required placeholder="उदा. मेघा, मगरलोड (धमतरी)">
+                </div>
+
+                <div class="form-group">
+                    <label id="lblRegPasscode">गुप्त पासकोड बनाएं (Create Passcode PIN) *</label>
+                    <input type="password" id="regPasscode" required maxlength="8" placeholder="अपना 4 या 6 अंकों का पासकोड बनाएं">
+                    <span style="font-size: 11px; color: #64748b; margin-top: 4px; display: block;">💡 इस पासकोड को याद रखें, अगली बार लॉगिन करने के लिए यही काम आएगा।</span>
+                </div>
+
+                <button type="submit" class="btn-primary btn-green" id="btnSubmitReg" style="margin-top: 8px; padding: 14px;">
+                    ✓ पंजीकरण पूर्ण करें (Register & Continue) →
+                </button>
+            </form>
+
+            <!-- FORM 2: LOGIN (MOBILE + PASSCODE) -->
+            <form id="studentLoginForm">
+                <div class="form-group">
+                    <label>पंजीकृत WhatsApp मोबाइल नंबर *</label>
+                    <input type="tel" id="loginMobile" required pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर">
+                </div>
+
+                <div class="form-group">
+                    <label>गुप्त पासकोड (Passcode) *</label>
+                    <input type="password" id="loginPasscode" required placeholder="अपना बनाया हुआ पासकोड दर्ज करें">
+                </div>
+
+                <div id="loginErrorMsg" class="hidden" style="padding: 10px; background: #fef2f2; border: 1px solid #f87171; border-radius: 10px; color: #991b1b; font-size: 12px; font-weight: 700; margin-bottom: 12px;">
+                    ⚠️ गलत मोबाइल नंबर या पासकोड! यदि आप पहली बार आए हैं तो ऊपर 'नया पंजीकरण' करें।
+                </div>
+
+                <button type="submit" class="btn-primary" style="margin-top: 8px; padding: 14px;">
+                    पोर्टल में प्रवेश करें (Enter Portal) →
+                </button>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 12px;">
+                    <a href="javascript:void(0)" onclick="openStudentForgotPasscodeModal()" style="color: #d97706; font-weight: 800; text-decoration: underline;">
+                        🔑 पासकोड भूल गए?
+                    </a>
+                    <a href="javascript:void(0)" onclick="switchAuthMode('reg')" style="color: #1d4ed8; font-weight: 800; text-decoration: underline;">
+                        📝 नया पंजीकरण करें
+                    </a>
+                </div>
+            </form>
+        </section>
+
+        <!-- VIEW 2: CBT TEST CENTER -->
+        <section id="viewTests" class="hidden">
+            <div class="card" style="background: linear-gradient(135deg, #021235 0%, #031b4d 50%, #1e3a8a 100%); color: #ffffff; border: none; padding: 22px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+                    <div>
+                        <div style="display: flex; gap: 6px; align-items: center; margin-bottom: 6px;">
+                            <span class="badge badge-white" id="dashSessionBadge">सत्र 2026-27</span>
+                            <span class="badge badge-green" style="background: rgba(34, 197, 94, 0.2); color: #86efac; border-color: rgba(34, 197, 94, 0.3);">
+                                ● लाइव पोर्टल
+                            </span>
+                        </div>
+                        <h2 style="font-size: 20px; font-weight: 900; letter-spacing: -0.5px;">नमस्ते, <span id="dashName">विद्यार्थी</span>! 👋</h2>
+                        <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">
+                            मोबाइल: <strong id="dashMobile" style="color: #ffffff;">-</strong> • पता: <span id="dashAddress" style="color: #93c5fd;">-</span>
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 12px; text-align: right;">
+                        <span style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #93c5fd; display: block;">केंद्र</span>
+                        <strong style="font-size: 12px; color: #ffffff;" id="dashCenterName">UCC मेघा</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIVE NOTICE STRIP -->
+            <div id="liveNoticeStrip" class="card" style="background: #eff6ff; border: 1.5px solid #bfdbfe; padding: 14px 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 22px; line-height: 1;">📢</span>
+                <span id="liveNoticeContent" style="font-size: 13px; font-weight: 700; color: #1e40af; line-height: 1.4;">
+                    प्रयास आवासीय विद्यालय ऑनलाइन टेस्ट सक्रिय है! सभी विद्यार्थी समय सीमा के अंदर टेस्ट पूरा करें।
+                </span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <h3 style="font-size: 16px; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                    <span>📋</span> उपलब्ध ऑनलाइन CBT टेस्ट्स
+                </h3>
+                <span id="testsCountBadge" class="badge badge-blue">1 टेस्ट सक्रिय</span>
+            </div>
+
+            <!-- DYNAMIC TESTS LIST -->
+            <div id="dynamicTestsList" style="display: flex; flex-direction: column; gap: 14px;"></div>
+        </section>
+
+        <!-- VIEW 2.5: STUDENT TEST HISTORY (ARCHIVE) -->
+        <section id="viewHistory" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; display: center; align-items: center; gap: 8px;">
+                        <span>📊</span> मेरा परीक्षा इतिहास व प्रगति रिपोर्ट
+                    </h3>
+                    <p style="font-size: 12px; color: #64748b; margin-top: 2px;">
+                        आपके द्वारा दिए गए सभी ऑनलाइन टेस्ट्स का आधिकारिक रिकॉर्ड व विस्तृत हल
+                    </p>
+                </div>
+                <span id="historyCountBadge" class="badge badge-blue">0 टेस्ट दिए</span>
+            </div>
+
+            <div id="studentHistoryListContainer" style="display: flex; flex-direction: column; gap: 12px;"></div>
+        </section>
+
+        <!-- VIEW 3: CBT EXAM ENGINE (AUTOSAVE & CRASH PROOF) -->
+        <section id="viewCbtEngine" class="hidden">
+            <div class="timer-strip">
+                <div>
+                    <span style="font-size: 11px; font-weight: 700; color: #93c5fd; text-transform: uppercase; display: block;" id="engineHeaderTitle">CBT परीक्षा</span>
+                    <span style="font-size: 14px; color: #ffffff;">प्रश्न <strong id="qIndexText">1</strong> / <strong id="qTotalText">20</strong></span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 11px; background: rgba(34,197,94,0.25); color: #86efac; border: 1px solid rgba(34,197,94,0.4); padding: 3px 8px; border-radius: 6px; font-weight: 800;">
+                        ● सुरक्षित ऑटो-सेव चालू
+                    </span>
+                    <div class="timer-val">
+                        ⏱️ <span id="timerDisplay">60:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <div class="card" style="padding: 22px;">
+                    <div style="margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid #f1f5f9;">
+                        <p id="qHindi" style="font-size: 16px; font-weight: 900; color: #0f172a; line-height: 1.55;"></p>
+                        <p id="qEnglish" style="font-size: 13px; color: #64748b; margin-top: 6px; font-style: italic;"></p>
+                    </div>
+
+                    <div id="optionsContainer"></div>
+
+                    <div id="qLockedBanner" class="hidden" style="margin-top: 14px; padding: 12px 16px; background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 12px; color: #92400e; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 18px;">🔒</span>
+                        <span>यह उत्तर स्थायी रूप से लॉक हो चुका है (उत्तर बदला नहीं जा सकता)।</span>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 10px;">
+                        <div style="display: flex; gap: 8px;">
+                            <button id="btnPrev" onclick="prevQ()" style="padding: 9px 16px; border-radius: 10px; border: 1.5px solid #cbd5e1; background: #ffffff; font-weight: 800; font-size: 12px; cursor: pointer;">← पिछला</button>
+                            <button id="btnNext" onclick="nextQ()" style="padding: 9px 16px; border-radius: 10px; border: 1.5px solid #cbd5e1; background: #ffffff; font-weight: 800; font-size: 12px; cursor: pointer;">अगला →</button>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button id="btnReview" onclick="toggleReview()" style="padding: 9px 16px; border-radius: 10px; border: 1.5px solid #9333ea; background: #ffffff; color: #9333ea; font-weight: 800; font-size: 12px; cursor: pointer;">
+                                रिव्यू में रखें
+                            </button>
+                            <button id="btnLock" onclick="requestLockAnswer()" style="padding: 9px 18px; border-radius: 10px; border: none; background: #d97706; color: #ffffff; font-weight: 900; font-size: 12px; cursor: pointer; box-shadow: 0 4px 10px rgba(217,119,6,0.25);">
+                                🔒 उत्तर लॉक करें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 18px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="font-size: 12px; font-weight: 900; color: #334155; text-transform: uppercase; letter-spacing: 0.5px;">प्रश्न तालिका (Palette)</span>
+                        <span style="font-size: 11px; font-weight: 800; color: #64748b;" id="paletteTotalText">कुल 20</span>
+                    </div>
+
+                    <div id="paletteGrid" class="palette-grid"></div>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; font-weight: 800; color: #64748b; margin-top: 16px; padding-top: 12px; border-top: 1px solid #f1f5f9;">
+                        <div style="display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:12px; height:12px; background:#d97706; border-radius:3px;"></span> लॉक किया</div>
+                        <div style="display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:12px; height:12px; background:#16a34a; border-radius:3px;"></span> चुना गया</div>
+                        <div style="display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:12px; height:12px; background:#9333ea; border-radius:3px;"></span> समीक्षा</div>
+                    </div>
+
+                    <button onclick="promptSubmit()" class="btn-primary btn-red" style="margin-top: 16px; padding: 13px;">
+                        🏁 परीक्षा सबमिट करें
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 4: SCORECARD & SOLUTIONS -->
+        <section id="viewScorecard" class="hidden">
+            <div class="scorecard-hero">
+                <span class="badge badge-white" style="margin-bottom: 6px;">आधिकारिक परिणाम (Scorecard)</span>
+                <h2 style="font-size: 22px; font-weight: 900; letter-spacing: -0.5px;" id="scoreTestTitle">मॉक टेस्ट परिणाम</h2>
+                <p style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">
+                    <strong id="scoreName" style="color: #ffffff;">छात्र</strong> • मोबाइल: <strong id="scoreMobile" style="color: #ffffff;">-</strong>
+                </p>
+
+                <div class="score-circle-wrapper">
+                    <div class="score-big-num" id="scoreMarksBig">0</div>
+                    <div class="score-big-denom" id="scoreMarksDenom">कुल 20 अंक</div>
+                </div>
+
+                <div id="scoreRankBadge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); color: #ffffff;">
+                    🏆 मूल्यांकन जारी...
+                </div>
+            </div>
+
+            <div class="score-stats-grid">
+                <div class="stat-tile">
+                    <span class="stat-tile-label">प्राप्तांक (Score)</span>
+                    <div class="stat-tile-val" style="color: #1d4ed8;" id="statScore">0 / 20</div>
+                </div>
+                <div class="stat-tile">
+                    <span class="stat-tile-label">प्रतिशत (Percent)</span>
+                    <div class="stat-tile-val" style="color: #059669;" id="statPercent">0%</div>
+                </div>
+                <div class="stat-tile">
+                    <span class="stat-tile-label">सटीकता (Accuracy)</span>
+                    <div class="stat-tile-val" style="color: #7c3aed;" id="statAccuracy">0%</div>
+                </div>
+                <div class="stat-tile">
+                    <span class="stat-tile-label">समय लगा (Time)</span>
+                    <div class="stat-tile-val" style="color: #b45309; font-size: 16px; margin-top: 7px;" id="statTime">0 मि.</div>
+                </div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                    <h4 style="font-size: 12px; font-weight: 900; color: #334155; text-transform: uppercase; letter-spacing: 0.5px;">
+                        👨‍🏫 शिक्षक मूल्यांकन (Mentor Feedback):
+                    </h4>
+                    <span style="font-size: 11px; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 3px 8px; border-radius: 6px;" id="scoreBadgeInst">UCC Megha</span>
+                </div>
+                <div id="scoreFeedbackBox" class="feedback-banner"></div>
+            </div>
+
+            <!-- Action Buttons: WhatsApp Share, Copy, Print -->
+            <div class="action-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;">
+                <button onclick="shareScorecardWhatsApp()" class="btn-primary btn-green" style="padding: 12px 8px; font-size: 12px;">
+                    💬 WhatsApp शेयर
+                </button>
+                <button onclick="copyScorecardText()" class="btn-primary btn-outline" style="padding: 12px 8px; font-size: 12px;" id="btnCopyScore">
+                    📋 टेक्स्ट कॉपी करें
+                </button>
+                <button onclick="window.print()" class="btn-primary btn-slate" style="padding: 12px 8px; font-size: 12px;">
+                    🖨️ प्रिंट / PDF
+                </button>
+            </div>
+
+            <div class="card" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                    <h3 style="font-size: 15px; font-weight: 900; color: #0f172a;">
+                        📝 विस्तृत चरणबद्ध हल (Step-by-Step Solutions)
+                    </h3>
+                    <span style="font-size: 11px; font-weight: 800; color: #64748b;" id="solutionsTotalBadge">
+                        सभी प्रश्न
+                    </span>
+                </div>
+
+                <div class="filter-strip">
+                    <button class="filter-chip active" id="chip_all" onclick="filterSolutions('all')">सभी प्रश्न (<span id="countAll">20</span>)</button>
+                    <button class="filter-chip" id="chip_cor" onclick="filterSolutions('cor')">✓ केवल सही (<span id="countCor">0</span>)</button>
+                    <button class="filter-chip" id="chip_inc" onclick="filterSolutions('inc')">✗ केवल गलत / छूटे (<span id="countInc">0</span>)</button>
+                </div>
+
+                <div id="solutionsBox" style="display: flex; direction: column; gap: 10px;"></div>
+
+                <div style="display: flex; gap: 10px; margin-top: 18px;">
+                    <button onclick="switchTab('tests')" class="btn-primary" style="flex: 1; padding: 14px;">
+                        ← टेस्ट केंद्र पर जाएँ
+                    </button>
+                    <button onclick="switchTab('history')" class="btn-primary btn-outline" style="flex: 1; padding: 14px;">
+                        📊 मेरा पूरा इतिहास देखें →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 5: NOTES & DPP LIBRARY (NESTED SUB-FOLDERS) -->
+        <section id="viewNotes" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <div>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a;" id="notesPageTitle">
+                        📚 UCC डिजिटल ई-नोट्स व DPP लाइब्रेरी
+                    </h3>
+                    <p style="font-size: 12px; color: #64748b; margin-top: 2px;">
+                        विषयवार व अध्यायवार आधिकारिक अध्ययन सामग्री (Google Drive कनेक्टेड)
+                    </p>
+                </div>
+            </div>
+
+            <div id="dynamicNotesContainer" style="display: flex; flex-direction: column; gap: 12px;"></div>
+        </section>
+
+        <!-- VIEW 6: CONTACT & MAPS HUB -->
+        <section id="viewContact" class="hidden">
+            <div class="card">
+                <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; margin-bottom: 12px;" id="cntInstName">
+                    🏛️ Unique Coaching Classes (UCC) Megha
+                </h3>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 14px; border: 1px solid #e2e8f0; font-size: 13px; line-height: 1.8; margin-bottom: 16px;">
+                    <p>📍 <strong>मुख्य केंद्र (Address):</strong> <span id="cntAddress">मेघा, मगरलोड, जिला धमतरी (छत्तीसगढ़) - 493662</span></p>
+                    <p>👨‍🏫 <strong>संचालक (Director):</strong> <span id="cntDirector">सोम सर (संचालक)</span></p>
+                    <p>📞 <strong>मुख्य संपर्क (Primary Contact):</strong> <a id="cntPhoneLink" href="tel:7067022719" style="color:#1d4ed8; font-weight:800; text-decoration:none;"><span id="cntPhone">+91 70670 22719</span></a></p>
+                    <p id="cntAltPhoneRow">📱 <strong>अतिरिक्त संपर्क (Alt Contact):</strong> <span id="cntAltPhone">-</span></p>
+                    <p>✉️ <strong>आधिकारिक ईमेल (Email/Gmail):</strong> <span id="cntEmail" style="color:#1d4ed8; font-weight:800; cursor:pointer;" onclick="openEmailActionModal()">uniqueclassesedu@gmail.com</span></p>
+                    <p>🎯 <strong>विशेष बैच (Target Batches):</strong> <span id="cntBatches">प्रयास आवासीय विद्यालय, नवोदय प्रवेश एवं कक्षा 10वीं बोर्ड</span></p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a id="cntMapsLinkBtn" href="https://www.google.com/maps/dir/?api=1&destination=यूनिक+कोचिंग+क्लासेज+मेघा+छत्तीसगढ़+493662&destination_place_id=ChIJmY-4AEs3LzoRFR7xr1dlCOo" 
+                       target="_blank" rel="noopener noreferrer" 
+                       class="btn-primary" style="background: #0f172a; padding: 14px;">
+                        🧭 Google Maps पर सीधा रास्ता देखें (GPS)
+                    </a>
+                    <a id="cntWaLinkBtn" href="https://chat.whatsapp.com/Jxk39A6NfaYEoHS5eHzEmQ?s=cl&p=i&ilr=4&iam=2" 
+                       target="_blank" rel="noopener noreferrer" 
+                       class="btn-primary btn-green" style="padding: 14px;">
+                        💬 आधिकारिक WhatsApp ग्रुप से जुड़ें
+                    </a>
+                    <button onclick="openEmailActionModal()" type="button"
+                       class="btn-primary btn-outline" style="padding: 13px;">
+                        ✉️ संस्थान को सुरक्षित ईमेल (Gmail) भेजें
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-copy" id="footerCopyText">
+            © Unique Coaching Classes (UCC) Megha. सर्वाधिकार सुरक्षित (All Rights Reserved).
+        </div>
+        <p id="footerDisclaimer">इस पोर्टल की अध्ययन सामग्री एवं टेस्ट प्रश्नों का अनधिकृत वितरण कानूनी रूप से प्रतिबंधित है।</p>
+        
+        <div id="footerAdminContainer" style="margin-top: 8px;">
+            <button onclick="promptAdminAccess()" class="admin-footer-btn">
+                🔒 एडमिन पोर्टल (Admin Access)
+            </button>
+        </div>
+    </footer>
+
+    <!-- IN-APP SAFE EMAIL ACTION MODAL -->
+    <div id="emailActionModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 400px; text-align: center;">
+            <div style="width: 52px; height: 52px; background: #eff6ff; border-radius: 50%; color: #1d4ed8; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                ✉️
+            </div>
+            <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">संस्थान से ईमेल संपर्क</h3>
+            <p style="font-size: 12px; color: #64748b; margin-top: 4px;">
+                आधिकारिक ईमेल आईडी:
+            </p>
+            <div style="background: #f1f5f9; padding: 10px; border-radius: 10px; font-weight: 800; color: #1e40af; font-size: 13px; margin: 10px 0; word-break: break-all;">
+                <span id="displayModalEmail">uniqueclassesedu@gmail.com</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                <button onclick="launchGmailDraft()" class="btn-primary" style="padding: 11px; font-size: 12px;">
+                    🚀 Gmail ऐप में संदेश खोलें (New Tab)
+                </button>
+                <button onclick="copyInstituteEmail()" class="btn-primary btn-outline" style="padding: 11px; font-size: 12px;" id="btnCopyEmailAction">
+                    📋 ईमेल आईडी कॉपी करें
+                </button>
+                <button onclick="closeEmailActionModal()" class="btn-primary btn-slate" style="padding: 10px; font-size: 12px;">
+                    वापस जाएँ (बंद करें)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT FORGOT PASSCODE MODAL -->
+    <div id="studentForgotPassModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 400px; text-align: center;">
+            <div style="width: 52px; height: 52px; background: #fef3c7; border-radius: 50%; color: #b45309; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                🔑
+            </div>
+            <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">पासकोड भूल गए?</h3>
+            <p style="font-size: 12px; color: #64748b; margin-top: 4px; line-height: 1.5;">
+                विद्यार्थी कृपया ध्यान दें: सुरक्षा कारणों से पासकोड रीसेट केवल संस्थान संचालक (सोम सर) द्वारा अधिकृत है।
+            </p>
+
+            <div class="form-group" style="margin-top: 14px; text-align: left;">
+                <label>अपना पंजीकृत मोबाइल नंबर दर्ज करें *</label>
+                <input type="tel" id="studentForgotMobInput" maxlength="10" placeholder="10 अंकों का WhatsApp नंबर">
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button onclick="requestStudentPasscodeOnWhatsApp()" class="btn-primary btn-green" style="padding: 12px; font-size: 13px;">
+                    💬 सोम सर से WhatsApp पर पासकोड प्राप्त करें
+                </button>
+                <button onclick="closeStudentForgotPassModal()" class="btn-primary btn-slate" style="padding: 10px; font-size: 12px;">
+                    रद्द करें
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CBT ANSWER LOCK CAUTION MODAL -->
+    <div id="cbtCautionModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 380px; text-align: center;">
+            <div style="width: 52px; height: 52px; background: #fef3c7; border-radius: 50%; color: #b45309; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                🔒
+            </div>
+            <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">उत्तर लॉक करें?</h3>
+            <p style="font-size: 13px; color: #64748b; margin-top: 6px; line-height: 1.5;">
+                एक बार उत्तर लॉक करने के बाद आप इसे <strong>बदल नहीं सकेंगे</strong>। क्या आप वाकई इस विकल्प को पक्का करना चाहते हैं?
+            </p>
+            <div style="display: flex; gap: 8px; margin-top: 18px;">
+                <button onclick="dismissCautionModal()" class="btn-primary btn-slate" style="padding: 10px;">रद्द करें</button>
+                <button onclick="confirmCautionLock()" class="btn-primary btn-amber" style="padding: 10px;">हाँ, लॉक करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CBT SUBMISSION CONFIRMATION MODAL -->
+    <div id="cbtSubmitConfirmModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 390px; text-align: center;">
+            <div style="width: 54px; height: 54px; background: #fee2e2; border-radius: 50%; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 12px;">
+                🏁
+            </div>
+            <h3 style="font-size: 17px; font-weight: 900; color: #0f172a;">परीक्षा सबमिट करें?</h3>
+            <p style="font-size: 13px; color: #64748b; margin-top: 6px; line-height: 1.5;">
+                क्या आप निश्चित रूप से परीक्षा समाप्त करना चाहते हैं? आपका आधिकारिक परिणाम, रैंक और विस्तृत हल तुरंत तैयार हो जाएगा।
+            </p>
+            <div style="display: flex; gap: 8px; margin-top: 18px;">
+                <button onclick="closeSubmitConfirmModal()" class="btn-primary btn-slate" style="padding: 11px;">वापस टेस्ट पर</button>
+                <button onclick="confirmFinalSubmit()" class="btn-primary btn-red" style="padding: 11px;">सबमिट करें →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PASSWORD PROMPT MODAL -->
+    <div id="adminAuthModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 390px; text-align: center;">
+            <div style="width: 52px; height: 52px; background: #e0e7ff; border-radius: 50%; color: #3730a3; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                🔒
+            </div>
+            <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">एडमिन पोर्टल सत्यापन</h3>
+            <p style="font-size: 12px; color: #64748b; margin-top: 4px;">केवल संस्थान संचालक हेतु सुरक्षित पिन दर्ज करें:</p>
+            <input type="password" id="adminPasswordInput" placeholder="पासवर्ड दर्ज करें" style="margin: 16px 0 8px; text-align: center; font-weight: 800; font-size: 16px; letter-spacing: 2px;">
+            <p id="adminAuthError" class="hidden" style="color: #dc2626; font-size: 12px; font-weight: 800; margin-bottom: 12px;">गलत पासवर्ड! कृपया सही पासवर्ड दर्ज करें।</p>
+            
+            <div style="display: flex; gap: 8px;">
+                <button onclick="closeAdminAuthModal()" class="btn-primary btn-slate" style="padding: 10px;">रद्द करें</button>
+                <button onclick="verifyAdminPassword()" class="btn-primary" style="padding: 10px;">प्रवेश करें →</button>
+            </div>
+
+            <div style="margin-top: 14px; border-top: 1px solid #f1f5f9; padding-top: 10px;">
+                <button onclick="openForgotPinModal()" style="background: none; border: none; color: #2563eb; font-size: 11px; font-weight: 800; cursor: pointer; text-decoration: underline;">
+                    🔑 पिन भूल गए? (Forgot Admin PIN?)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNHACKABLE ADMIN FORGOT PIN MODAL -->
+    <div id="adminForgotPinModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 440px; text-align: center;">
+            <div style="width: 52px; height: 52px; background: #fee2e2; border-radius: 50%; color: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
+                🛡️
+            </div>
+            <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">अति-सुरक्षित एडमिन पिन रिकवरी</h3>
+            <p style="font-size: 12px; color: #64748b; margin-top: 4px; line-height: 1.5;">
+                सोम सर, चूँकि आपका ईमेल सार्वजनिक है, कोई भी छात्र इसे खोल न सके इसलिए केवल <strong>वास्तविक Gmail OTP</strong> या आपकी <strong>मास्टर गुप्त कुंजी</strong> द्वारा ही रीसेट संभव है।
+            </p>
+
+            <div id="recoveryStep1">
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; margin: 14px 0; text-align: left; font-size: 12px;">
+                    <p style="font-weight: 800; color: #0f172a;">विकल्प A: Gmail पर 6-अंकों का लाइव OTP भेजें</p>
+                    <p style="font-size: 11px; color: #64748b; margin-top: 2px;">यह OTP सीधे <strong style="color:#1d4ed8;">uniqueclassesedu@gmail.com</strong> के इनबॉक्स में आएगा।</p>
+                    <button onclick="requestLiveGmailOtp()" id="btnSendOtp" class="btn-primary" style="margin-top: 8px; padding: 10px; font-size: 12px;">
+                        ✉️ Gmail पर गुप्त OTP भेजें
+                    </button>
+                </div>
+
+                <div style="text-align: center; font-size: 11px; font-weight: 900; color: #94a3b8; margin: 6px 0;">— अथवा —</div>
+
+                <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 12px; padding: 12px; margin-bottom: 12px; text-align: left; font-size: 12px;">
+                    <p style="font-weight: 800; color: #92400e;">विकल्प B: सोम सर की मास्टर रिकवरी कुंजी (Master Secret)</p>
+                    <input type="password" id="recoveryMasterSecretInput" placeholder="अपनी मास्टर कुंजी दर्ज करें (डिफ़ॉल्ट: SOM@UCC#1975)" style="margin-top: 6px; font-size: 12px; font-weight: 800;">
+                </div>
+            </div>
+
+            <div id="recoveryOtpSection" class="hidden" style="margin-bottom: 12px; text-align: left;">
+                <label style="color: #15803d;">Gmail पर आया 6-अंकों का OTP कोड दर्ज करें *</label>
+                <input type="text" id="recoveryEnteredOtp" maxlength="6" placeholder="उदा. 742918" style="text-align: center; font-size: 18px; font-weight: 900; letter-spacing: 4px; background: #f0fdf4; border-color: #86efac;">
+            </div>
+
+            <div class="form-group" style="text-align: left; margin-bottom: 10px;">
+                <label>नया गुप्त एडमिन पिन बनाएं (New 4-8 Digit PIN) *</label>
+                <input type="password" id="recoveryNewPinInput" maxlength="8" placeholder="नया गुप्त पिन (उदा. 4 से 8 अंक)" style="text-align: center; font-weight: 800; font-size: 15px;">
+            </div>
+            
+            <p id="recoveryErrorMsg" class="hidden" style="color: #dc2626; font-size: 12px; font-weight: 800; margin-bottom: 10px;"></p>
+            <p id="recoverySuccessMsg" class="hidden" style="color: #15803d; font-size: 12px; font-weight: 800; margin-bottom: 10px;"></p>
+
+            <div style="display: flex; gap: 8px;">
+                <button onclick="closeForgotPinModal()" class="btn-primary btn-slate" style="padding: 10px;">रद्द करें</button>
+                <button onclick="executeSecureAdminPinReset()" class="btn-primary btn-green" style="padding: 10px;">✓ नया पिन सुरक्षित करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN MASTER CONTROL HUB -->
+    <div id="adminPortalModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 820px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 14px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 22px;">⚙️</span>
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">UCC मास्टर एडमिन कंट्रोल रूम</h3>
+                        <p style="font-size: 11px; color: #64748b;">संस्थान, विद्यार्थी, परीक्षा स्थिति व सब-फ़ोल्डर नोट्स का संपूर्ण प्रबंधन</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminPortal()" style="background: #f1f5f9; border: none; font-size: 16px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; color: #64748b;">✕</button>
+            </div>
+
+            <!-- LIVE STATS SNAPSHOT STRIP -->
+            <div class="adm-stats-grid">
+                <div class="adm-stat-card">
+                    <span class="adm-stat-card-title">पंजीकृत विद्यार्थी</span>
+                    <div class="adm-stat-card-val" id="snapTotalStudents" style="color: #2563eb;">0</div>
+                </div>
+                <div class="adm-stat-card">
+                    <span class="adm-stat-card-title">सक्रिय CBT टेस्ट्स</span>
+                    <div class="adm-stat-card-val" id="snapActiveTests" style="color: #16a34a;">0</div>
+                </div>
+                <div class="adm-stat-card">
+                    <span class="adm-stat-card-title">नोट्स फ़ोल्डर्स</span>
+                    <div class="adm-stat-card-val" id="snapTotalNotes" style="color: #9333ea;">0</div>
+                </div>
+                <div class="adm-stat-card">
+                    <span class="adm-stat-card-title">कट-ऑफ मानक</span>
+                    <div class="adm-stat-card-val" id="snapCutoff" style="color: #d97706;">40%</div>
+                </div>
+            </div>
+
+            <!-- ADMIN TAB SWITCHER -->
+            <div style="display: flex; gap: 6px; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; overflow-x: auto;">
+                <button onclick="switchAdminTab('testsList')" id="admTabBtn_testsList" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #2563eb; color: #ffffff; white-space: nowrap;">
+                    📋 टेस्ट्स & स्थिति
+                </button>
+                <button onclick="switchAdminTab('createTest')" id="admTabBtn_createTest" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    ⚡ AI टेस्ट कोड
+                </button>
+                <button onclick="switchAdminTab('manageNotes')" id="admTabBtn_manageNotes" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    📂 सब-फ़ोल्डर नोट्स
+                </button>
+                <button onclick="switchAdminTab('studentsDirectory')" id="admTabBtn_studentsDirectory" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    👥 विद्यार्थी प्रबंधन
+                </button>
+                <button onclick="switchAdminTab('instituteSettings')" id="admTabBtn_instituteSettings" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    ⚙️ संस्थान सेटिंग्स
+                </button>
+                <button onclick="switchAdminTab('adminSecurity')" id="admTabBtn_adminSecurity" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    🔒 एडमिन सुरक्षा
+                </button>
+                <button onclick="switchAdminTab('backupRestore')" id="admTabBtn_backupRestore" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    💾 डेटा बैकअप
+                </button>
+                <button onclick="switchAdminTab('sheetWebhook')" id="admTabBtn_sheetWebhook" style="padding: 6px 11px; border-radius: 8px; font-size: 12px; font-weight: 800; border: none; cursor: pointer; background: #e2e8f0; color: #334155; white-space: nowrap;">
+                    📊 Google Sheet API
+                </button>
+            </div>
+
+            <!-- TAB 1: MANAGE EXISTING TESTS & LIVE TOGGLE -->
+            <div id="adminSec_testsList" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h4 style="font-size: 13px; font-weight: 900; color: #1e293b;">सक्रिय व आगामी टेस्ट्स नियंत्रण:</h4>
+                    <span style="font-size: 11px; color:#64748b;">(यहाँ से आप टेस्ट को कभी भी लाइव या पॉज़ कर सकते हैं)</span>
+                </div>
+                <div id="adminTestsContainer" style="display: flex; flex-direction: column; gap: 8px;"></div>
+            </div>
+
+            <!-- TAB 2: AI CODE PASTE & PUBLISH -->
+            <div id="adminSec_createTest" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; padding: 14px; border-radius: 12px; font-size: 12px; color: #1e40af; line-height: 1.5;">
+                    <strong>🤖 AI से टेस्ट जोड़ने का 2-सेकंड तरीक़ा:</strong><br>
+                    1. चैट में AI से बोलिए: <em>"मुझे इस विषय का टेस्ट कोड JSON में दो"</em>।<br>
+                    2. दिए गए कोड को कॉपी करके नीचे वाले बॉक्स में पेस्ट करें।<br>
+                    3. नीचे <strong>"✓ कोड से टेस्ट लाइव करें"</strong> बटन दबाएं।
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label style="margin-bottom: 0; font-size: 11px;">AI टेस्ट कोड (यहाँ पेस्ट करें) *</label>
+                        <button onclick="loadSampleAiCode()" style="background: none; border: none; color: #2563eb; font-size: 11px; font-weight: 800; cursor: pointer; text-decoration: underline;">
+                            📋 सैंपल कोड लोड करें
+                        </button>
+                    </div>
+                    <textarea id="aiTestCodeInput" rows="10" placeholder='यहाँ AI द्वारा दिया गया कोड पेस्ट करें...' style="font-family: monospace; font-size: 12px; line-height: 1.4; background: #0f172a; color: #38bdf8; border: 1.5px solid #334155; border-radius: 10px; padding: 12px; resize: vertical;"></textarea>
+                </div>
+
+                <div id="aiCodeErrorBox" class="hidden" style="padding: 10px 14px; background: #fef2f2; border: 1px solid #f87171; border-radius: 8px; color: #991b1b; font-size: 12px; font-weight: 700;"></div>
+
+                <button onclick="publishTestFromAiCode()" class="btn-primary btn-green" style="padding: 14px; font-size: 14px;">
+                    ✓ कोड से टेस्ट लाइव करें (Publish Test)
+                </button>
+            </div>
+
+            <!-- TAB 3: MANAGE SUB-FOLDER NOTES & DRIVE -->
+            <div id="adminSec_manageNotes" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 16px;">
+                    <h4 style="font-size: 13px; font-weight: 900; color: #0f172a; margin-bottom: 10px;">
+                        ➕ नया सब-फ़ोल्डर या नोट्स जोड़ें (Add Nested Notes Folder)
+                    </h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="form-group">
+                            <label>मुख्य विषय / मुख्य फ़ोल्डर (Category) *</label>
+                            <input type="text" id="admNewNoteCategory" placeholder="उदा. गणित स्पेशल, विज्ञान, प्रयास नोट्स">
+                        </div>
+                        <div class="form-group">
+                            <label>अध्याय / सब-फ़ोल्डर का नाम (Sub-Folder / Title) *</label>
+                            <input type="text" id="admNewNoteTitle" placeholder="उदा. अध्याय 1: सूत्र पुस्तिका व DPP">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>संक्षिप्त विवरण (Description)</label>
+                        <input type="text" id="admNewNoteDesc" placeholder="उदा. एक चर वाले रैखिक समीकरण एवं प्रायिकता अभ्यास">
+                    </div>
+                    <div class="form-group">
+                        <label>आपकी Google Drive का शेयर लिंक (Folder / File Link) *</label>
+                        <input type="url" id="admNewNoteLink" placeholder="https://drive.google.com/drive/folders/...">
+                    </div>
+                    <button onclick="addNewNotesFolder()" class="btn-primary" style="padding: 11px; font-size: 12px;">
+                        ✓ यह सब-फ़ोल्डर ऐप में जोड़ें
+                    </button>
+                </div>
+
+                <h4 style="font-size: 13px; font-weight: 900; color: #0f172a;">वर्तमान लाइव नोट्स व सब-फ़ोल्डर्स:</h4>
+                <div id="adminNotesListContainer" style="display: flex; flex-direction: column; gap: 8px;"></div>
+            </div>
+
+            <!-- TAB 4: STUDENTS DIRECTORY & PASSCODE MANAGER -->
+            <div id="adminSec_studentsDirectory" class="hidden" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="font-size: 13px; font-weight: 900; color: #0f172a;">
+                        👥 पंजीकृत विद्यार्थी सूची (<span id="admStudentsCount">0</span>)
+                    </h4>
+                    <button onclick="exportStudentsToCsv()" class="btn-primary btn-outline" style="width: auto; padding: 6px 12px; font-size: 11px;">
+                        📥 CSV एक्सेल डाउनलोड
+                    </button>
+                </div>
+                <p style="font-size: 11px; color: #64748b;">
+                    प्रत्येक छात्र का गुप्त पासकोड, संपर्क, सत्र और स्थिति। आप सीधे 1-क्लिक में WhatsApp चैट या पासकोड रीसेट कर सकते हैं।
+                </p>
+
+                <input type="text" id="searchStudentInput" onkeyup="filterAdminStudents()" placeholder="🔍 नाम, मोबाइल या गाँव से खोजें..." style="padding: 8px 12px; font-size: 12px;">
+
+                <div style="max-height: 320px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>नाम</th>
+                                <th>मोबाइल</th>
+                                <th>सत्र</th>
+                                <th>पासकोड (PIN)</th>
+                                <th>स्थिति</th>
+                                <th>क्रियाएँ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminStudentsTbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 5: INSTITUTE & CONTACT SETTINGS -->
+            <div id="adminSec_instituteSettings" class="hidden" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px; border-radius: 12px; font-size: 12px; color: #1e40af;">
+                    <strong>✏️ पूर्ण संस्थान नियंत्रण (Full Customization):</strong> कोचिंग का नाम, ईमेल, फ़ोन, पता और परीक्षा नियम बदलें।
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label>संस्थान का नाम (Institute Name) *</label>
+                        <input type="text" id="cfgInstName">
+                    </div>
+                    <div class="form-group">
+                        <label>टैगलाइन / उप-शीर्षक (Subtitle) *</label>
+                        <input type="text" id="cfgInstSubtitle">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label>संचालक / शिक्षक का नाम (Director) *</label>
+                        <input type="text" id="cfgDirector">
+                    </div>
+                    <div class="form-group">
+                        <label>आधिकारिक Gmail / ईमेल *</label>
+                        <input type="email" id="cfgEmail">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label>मुख्य मोबाइल नंबर (Primary Phone) *</label>
+                        <input type="tel" id="cfgPhone">
+                    </div>
+                    <div class="form-group">
+                        <label>अतिरिक्त संपर्क नंबर (Alt Phone)</label>
+                        <input type="tel" id="cfgAltPhone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>संस्थान का पूरा पता (Address) *</label>
+                    <input type="text" id="cfgAddress">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label>उत्तीर्ण प्रतिशत कट-ऑफ (Passing % Cutoff) *</label>
+                        <input type="number" id="cfgPassCutoff" min="10" max="100" placeholder="40">
+                    </div>
+                    <div class="form-group">
+                        <label>उपलब्ध सत्र (Sessions - अल्पविराम से अलग करें) *</label>
+                        <input type="text" id="cfgSessions" placeholder="2025-26, 2026-27, 2027-28">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>विशेष बैच विवरण (Special Batches)</label>
+                    <input type="text" id="cfgBatches">
+                </div>
+
+                <div class="form-group">
+                    <label>Google Maps सीधा नेविगेशन लिंक (GPS Link) *</label>
+                    <input type="url" id="cfgMapsLink">
+                </div>
+
+                <div class="form-group">
+                    <label>WhatsApp आधिकारिक ग्रुप लिंक *</label>
+                    <input type="url" id="cfgWaLink">
+                </div>
+
+                <div class="form-group">
+                    <label>फ़ूटर कॉपीराइट संदेश (Footer Copyright Text) *</label>
+                    <input type="text" id="cfgFooterCopy">
+                </div>
+
+                <button onclick="saveInstituteSettings()" class="btn-primary btn-green" style="padding: 12px; font-size: 13px;">
+                    ✓ सभी सेटिंग्स सेव करें (Save All Changes)
+                </button>
+            </div>
+
+            <!-- TAB 6: ADMIN SECURITY & PIN SETTINGS -->
+            <div id="adminSec_adminSecurity" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #fefce8; border: 1.5px solid #fef08a; border-radius: 14px; padding: 16px;">
+                    <span class="badge badge-amber">🔒 एडमिन पासवर्ड सुरक्षा</span>
+                    <h4 style="font-size: 14px; font-weight: 900; color: #854d0e; margin-top: 6px;">
+                        एडमिन पोर्टल का गुप्त पिन बदलें (Change Admin Passcode)
+                    </h4>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;">
+                        <div class="form-group">
+                            <label>वर्तमान पिन (Current PIN) *</label>
+                            <input type="password" id="admOldPinInput" placeholder="वर्तमान पिन दर्ज करें">
+                        </div>
+                        <div class="form-group">
+                            <label>नया पिन (New PIN) *</label>
+                            <input type="password" id="admNewPinInput" placeholder="नया गुप्त पिन (4-8 अंक)">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 10px; background: #ffffff; padding: 12px; border-radius: 10px; border: 1px solid #fde68a;">
+                        <label style="color: #92400e;">सोम सर की मास्टर रिकवरी कुंजी (Master Secret Key) *</label>
+                        <input type="text" id="admMasterSecretConfig" placeholder="अपनी व्यक्तिगत मास्टर कुंजी सेट करें">
+                        <span style="font-size:11px; color:#78350f; margin-top:4px; display:block;">💡 यदि कभी पिन भूल जाएं, तो यह शब्द डालने पर ही पिन रीसेट होगा (छात्रों को कभी न बताएं)।</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>सुरक्षा रिकवरी ईमेल (Admin Recovery Email) *</label>
+                        <input type="email" id="admRecoveryEmailField" readonly style="background:#f1f5f9; color:#475569; font-weight:700;">
+                        <span style="font-size:11px; color:#64748b; margin-top:4px; display:block;">💡 लाइव OTP इसी अधिकृत ईमेल इनबॉक्स में भेजा जाएगा।</span>
+                    </div>
+
+                    <button onclick="changeAdminPasscodeAction()" class="btn-primary btn-amber" style="padding: 12px; font-size: 13px;">
+                        ✓ नया एडमिन पिन व मास्टर कुंजी सुरक्षित करें
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 7: BACKUP & RESTORE DATA -->
+            <div id="adminSec_backupRestore" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 14px; padding: 16px;">
+                    <span class="badge badge-green">💾 संपूर्ण डेटा सुरक्षा</span>
+                    <h4 style="font-size: 14px; font-weight: 900; color: #166534; margin-top: 6px;">
+                        1-क्लिक संपूर्ण कोचिंग डेटा बैकअप
+                    </h4>
+                    <p style="font-size: 12px; color: #15803d; margin-top: 4px; line-height: 1.5;">
+                        अपने सभी टेस्ट, पंजीकृत छात्र, नोट्स लिंक और सेटिंग्स का बैकअप डाउनलोड करके अपनी Google Drive में सुरक्षित रखें।
+                    </p>
+
+                    <button onclick="downloadFullInstituteBackup()" class="btn-primary btn-green" style="margin-top: 12px; padding: 12px; font-size: 13px;">
+                        📥 संपूर्ण कोचिंग डेटा बैकअप (JSON) डाउनलोड करें
+                    </button>
+                </div>
+
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 16px;">
+                    <h4 style="font-size: 13px; font-weight: 900; color: #0f172a; margin-bottom: 6px;">
+                        📤 बैकअप फ़ाइल रीस्टोर करें (Restore from JSON)
+                    </h4>
+                    <p style="font-size: 11px; color: #64748b; margin-bottom: 10px;">
+                        यदि आपने नया मोबाइल लिया है, तो अपनी पहले डाउनलोड की गई बैकअप फ़ाइल यहाँ से लोड करें:
+                    </p>
+                    <input type="file" id="importBackupFileInput" accept=".json" style="font-size: 12px; margin-bottom: 10px;">
+                    <button onclick="restoreInstituteBackupAction()" class="btn-primary btn-slate" style="padding: 10px; font-size: 12px;">
+                        ✓ यह बैकअप रीस्टोर करें
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 8: GOOGLE SHEET API WEBHOOK -->
+            <div id="adminSec_sheetWebhook" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 14px; padding: 16px;">
+                    <span class="badge badge-green">डायरेक्ट Google Sheet सिंक</span>
+                    <h4 style="font-size: 14px; font-weight: 900; color: #166534; margin-top: 6px;">
+                        Google Apps Script Web App URL
+                    </h4>
+                    <p style="font-size: 12px; color: #15803d; margin-top: 4px; line-height: 1.5;">
+                        यहाँ आपकी Google Sheet का Apps Script Webhook URL सुरक्षित रूप से कनेक्टेड है। नया रजिस्ट्रेशन, टेस्ट परिणाम और Gmail OTP इसी लिंक द्वारा संचालित हो रहे हैं।
+                    </p>
+
+                    <div class="form-group" style="margin-top: 12px; margin-bottom: 8px;">
+                        <label style="color: #166534;">Apps Script Web App URL</label>
+                        <input type="url" id="admWebhookUrlInput" placeholder="https://script.google.com/macros/s/.../exec">
+                    </div>
+                    <button onclick="saveWebhookUrl()" class="btn-primary btn-green" style="padding: 10px; font-size: 12px;">
+                        ✓ Webhook URL सेव करें
+                    </button>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px;">
+                    <label style="font-size: 11px; font-weight: 900; color: #334155;">होम स्क्रीन लाइव नोटिस बदलें</label>
+                    <textarea id="adminNoticeField" rows="2" style="font-size: 12px; margin-top: 6px; resize: vertical;"></textarea>
+                    <button onclick="saveAdminNotice()" class="btn-primary" style="margin-top: 8px; padding: 8px; font-size: 12px; background: #0f172a;">
+                        ✓ नोटिस अपडेट करें
+                    </button>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <button onclick="logoutAdminSecurely()" class="btn-primary btn-red" style="width: auto; padding: 8px 16px; font-size: 11px;">
+                    🔒 एडमिन सुरक्षित लॉगआउट
+                </button>
+                <button onclick="closeAdminPortal()" class="btn-primary btn-slate" style="width: auto; padding: 8px 16px; font-size: 11px;">
+                    विंडो बंद करें
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILED HISTORICAL TEST REVIEW MODAL -->
+    <div id="historicalReviewModal" class="modal-overlay hidden">
+        <div class="modal-box" style="max-width: 680px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 14px;">
+                <div>
+                    <span class="badge badge-blue" id="histReviewBadge">परीक्षा समीक्षा</span>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; margin-top: 4px;" id="histReviewTitle">मॉक टेस्ट समीक्षा</h3>
+                    <p style="font-size: 12px; color: #64748b;" id="histReviewMeta">दिनांक • प्राप्तांक</p>
+                </div>
+                <button onclick="closeHistoricalReviewModal()" style="background: #f1f5f9; border: none; font-size: 16px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: 900; color: #64748b;">✕</button>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto;">
+                <button class="filter-chip active" id="histChip_all" onclick="filterHistoricalSolutions('all')">सभी प्रश्न (<span id="histCountAll">0</span>)</button>
+                <button class="filter-chip" id="histChip_cor" onclick="filterHistoricalSolutions('cor')">✓ केवल सही (<span id="histCountCor">0</span>)</button>
+                <button class="filter-chip" id="histChip_inc" onclick="filterHistoricalSolutions('inc')">✗ केवल गलत / छूटे (<span id="histCountInc">0</span>)</button>
+            </div>
+
+            <div id="histSolutionsBox" style="display: flex; flex-direction: column; gap: 10px;"></div>
+
+            <button onclick="closeHistoricalReviewModal()" class="btn-primary btn-slate" style="margin-top: 16px; padding: 12px;">
+                समीक्षा विंडो बंद करें
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // DEFAULT INSTITUTE & CONTACT SETTINGS
+        const DEFAULT_SETTINGS = {
+            instName: "Unique Coaching Classes",
+            instSubtitle: "मेघा, धमतरी (छ.ग.) • डिजिटल लर्निंग पोर्टल",
+            director: "सोम सर (संचालक)",
+            email: "uniqueclassesedu@gmail.com",
+            recoveryEmail: "uniqueclassesedu@gmail.com",
+            phone: "+91 70670 22719",
+            altPhone: "",
+            address: "मेघा, मगरलोड, जिला धमतरी (छत्तीसगढ़) - 493662",
+            batches: "प्रयास आवासीय विद्यालय, नवोदय प्रवेश एवं कक्षा 10वीं बोर्ड",
+            sessions: "2025-26, 2026-27, 2027-28",
+            passCutoff: 40,
+            mapsLink: "https://www.google.com/maps/dir/?api=1&destination=यूनिक+कोचिंग+क्लासेज+मेघा+छत्तीसगढ़+493662&destination_place_id=ChIJmY-4AEs3LzoRFR7xr1dlCOo",
+            waLink: "https://chat.whatsapp.com/Jxk39A6NfaYEoHS5eHzEmQ?s=cl&p=i&ilr=4&iam=2",
+            footerCopy: "© Unique Coaching Classes (UCC) Megha. सर्वाधिकार सुरक्षित (All Rights Reserved)."
+        };
+
+        let appSettings = Object.assign({}, DEFAULT_SETTINGS);
+        let ADMIN_PASSCODE = "1975";
+        let ADMIN_MASTER_SECRET = "SOM@UCC#1975";
+        let liveGeneratedOtp = null;
+
+        // DEFAULT INITIAL MOCK TEST 1
+        const INITIAL_MOCK_QUESTIONS = [
+            { id: 1, hi: "समीकरण 3x - 7 = 14 में x का मान क्या होगा?", en: "Solve: 3x - 7 = 14", opts: ["5", "7", "9", "21"], cor: 1, sol: "3x = 14 + 7 = 21 ⟹ x = 7" },
+            { id: 2, hi: "यदि x/4 + 3 = 8 हो, तो x किसके बराबर है?", en: "If x/4 + 3 = 8, find x:", opts: ["11", "15", "20", "32"], cor: 2, sol: "x/4 = 8 - 3 = 5 ⟹ x = 20" },
+            { id: 3, hi: "किसी संख्या के तिगुने में 5 जोड़ने पर 26 प्राप्त होता है। वह संख्या क्या है?", en: "3x + 5 = 26. Find number:", opts: ["6", "7", "8", "9"], cor: 1, sol: "3x = 21 ⟹ x = 7" },
+            { id: 4, hi: "समीकरण 4(x - 3) = 2(x + 5) को हल कीजिए:", en: "Solve: 4(x - 3) = 2(x + 5)", opts: ["11", "10", "9", "8"], cor: 0, sol: "4x - 12 = 2x + 10 ⟹ 2x = 22 ⟹ x = 11" },
+            { id: 5, hi: "यदि x/2 - x/3 = 4 हो, तो x का मान क्या है?", en: "Solve: x/2 - x/3 = 4", opts: ["12", "18", "24", "30"], cor: 2, sol: "(3x - 2x)/6 = 4 ⟹ x = 24" },
+            { id: 6, hi: "दो क्रमागत सम संख्याओं का योग 54 है। छोटी संख्या क्या है?", en: "Sum of 2 consecutive even numbers is 54:", opts: ["24", "26", "28", "30"], cor: 1, sol: "2x + 2 = 54 ⟹ 2x = 52 ⟹ x = 26" },
+            { id: 7, hi: "एक आयत का परिमाप 40 cm है। लंबाई चौड़ाई से 4 cm अधिक है, तो लंबाई होगी:", en: "Perimeter 40 cm. Length = b + 4:", opts: ["10 cm", "12 cm", "14 cm", "16 cm"], cor: 1, sol: "2(2b+4) = 40 ⟹ 2b = 16 ⟹ b = 8 cm. लंबाई = 12 cm" },
+            { id: 8, hi: "समीकरण (2x + 5)/3 = (3x - 1)/4 को हल कीजिए:", en: "Solve: (2x + 5)/3 = (3x - 1)/4", opts: ["17", "21", "23", "25"], cor: 2, sol: "4(2x+5) = 3(3x-1) ⟹ 8x+20 = 9x-3 ⟹ x = 23" },
+            { id: 9, hi: "राहुल की आयु उसकी बहन की दोगुनी है। 5 वर्ष पहले तिगुनी थी। राहुल की वर्तमान आयु:", en: "Rahul's present age:", opts: ["10 वर्ष", "15 वर्ष", "20 वर्ष", "25 वर्ष"], cor: 2, sol: "2x - 5 = 3(x - 5) ⟹ x = 10 ⟹ राहुल = 20 वर्ष" },
+            { id: 10, hi: "दो अंकों की संख्या के अंकों का योग 9 है। इकाई अंक दहाई से 3 अधिक है। संख्या:", en: "Sum of digits is 9. Unit digit = tens + 3:", opts: ["27", "36", "45", "63"], cor: 1, sol: "दहाई x, इकाई x+3 ⟹ 2x+3=9 ⟹ x=3. संख्या = 36" },
+            { id: 11, hi: "एक निष्पक्ष पासे को फेंकने पर अभाज्य संख्या आने की प्रायिकता क्या है?", en: "Probability of prime number on a die:", opts: ["1/6", "1/3", "1/2", "2/3"], cor: 2, sol: "अभाज्य = {2, 3, 5} (3/6 = 1/2)" },
+            { id: 12, hi: "दो सिक्कों को उछालने पर ठीक एक Head आने की प्रायिकता क्या होगी?", en: "Probability of exactly 1 Head on 2 coins:", opts: ["1/4", "1/2", "3/4", "1"], cor: 1, sol: "अनुकूल = {HT, TH} (2/4 = 1/2)" },
+            { id: 13, hi: "52 ताश के पत्तों में से एक बेगम (Queen) निकलने की प्रायिकता:", en: "Probability of Queen from 52 cards:", opts: ["1/13", "1/26", "1/52", "4/13"], cor: 0, sol: "कुल बेगम 4 ⟹ 4/52 = 1/13" },
+            { id: 14, hi: "एक पासे को फेंकने पर 4 से बड़ा अंक आने की प्रायिकता क्या है?", en: "Probability of number > 4 on a die:", opts: ["1/6", "1/3", "1/2", "2/3"], cor: 1, sol: "4 से बड़े = {5, 6} ⟹ 2/6 = 1/3" },
+            { id: 15, hi: "थैले में 3 लाल, 5 काली, 4 सफेद गेंदें हैं। सफेद गेंद की प्रायिकता:", en: "3 red, 5 black, 4 white. Probability of white:", opts: ["1/4", "1/3", "5/12", "1/2"], cor: 1, sol: "4 सफेद / 12 कुल = 1/3" },
+            { id: 16, hi: "52 ताश के पत्तों में से 'काले रंग का पत्ता' निकलने की प्रायिकता:", en: "Probability of Black card from 52 cards:", opts: ["1/4", "1/2", "3/4", "1/13"], cor: 1, sol: "काले पत्ते = 26 ⟹ 26/52 = 1/2" },
+            { id: 17, hi: "दो पासों को फेंकने पर दोनों पर एक ही अंक (Doublet) आने की प्रायिकता:", en: "Probability of doublet on two dice:", opts: ["1/12", "1/6", "5/36", "1/4"], cor: 1, sol: "युग्म = 6 ⟹ 6/36 = 1/6" },
+            { id: 18, hi: "1 से 20 तक टिकटों में से 3 का गुणज निकलने की प्रायिकता क्या है?", en: "Probability of multiple of 3 from 1 to 20:", opts: ["3/10", "1/4", "7/20", "2/5"], cor: 0, sol: "3 के गुणज = {3,6,9,12,15,18} = 6/20 = 3/10" },
+            { id: 19, hi: "52 ताश के पत्तों में से 'तस्वीर वाला पत्ता' (Face Card) निकलने की प्रायिकता:", en: "Probability of Face card from 52 cards:", opts: ["3/13", "4/13", "1/13", "6/13"], cor: 0, sol: "कुल 12 फेस कार्ड ⟹ 12/52 = 3/13" },
+            { id: 20, hi: "दो पासों को फेंकने पर अंकों का योग 9 होने की प्रायिकता क्या है?", en: "Probability of sum = 9 on two dice:", opts: ["1/12", "1/9", "5/36", "1/6"], cor: 1, sol: "योग 9 = {(3,6),(4,5),(5,4),(6,3)} ⟹ 4/36 = 1/9" }
+        ];
+
+        let ALL_TESTS = [
+            {
+                id: "test_1",
+                title: "मॉक टेस्ट 1: एक चर वाले रैखिक समीकरण एवं प्रायिकता",
+                subject: "गणित स्पेशल",
+                durationMin: 60,
+                isFreeDemo: true,
+                isActive: true,
+                questions: INITIAL_MOCK_QUESTIONS
+            }
+        ];
+
+        let ALL_NOTES = [];
+        let REGISTERED_STUDENTS = [];
+        
+        // DIRECT SYNC WITH SOM SIR'S LIVE GOOGLE APPS SCRIPT WEBHOOK URL
+        let GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx2S5Rj1mLkSFPkqNpBKpcOtm678I22lJua7DcMtlSgZYu9TCE-3SKpTBXLu2X6L9O-9g/exec";
+
+        let currentStudent = null;
+        let currentActiveTest = ALL_TESTS[0];
+        let cbtIndex = 0;
+        let userAnswers = [];
+        let userLocks = [];
+        let userReviews = [];
+        let cbtCautionCount = 0;
+        let pendingLockIndex = null;
+        let timerSeconds = 60 * 60;
+        let timerInterval = null;
+        let lastTestResult = null;
+        let currentSolutionFilter = 'all';
+
+        // Historical Review Active State
+        let activeHistoricalResult = null;
+        let currentHistFilter = 'all';
+
+        // INITIAL LOAD & LOCAL STORAGE SYNC
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                const savedPin = localStorage.getItem('ucc_admin_passcode');
+                if (savedPin) ADMIN_PASSCODE = savedPin;
+
+                const savedMaster = localStorage.getItem('ucc_admin_master_secret');
+                if (savedMaster) ADMIN_MASTER_SECRET = savedMaster;
+
+                const savedSettings = localStorage.getItem('ucc_institute_settings');
+                if (savedSettings) appSettings = Object.assign({}, DEFAULT_SETTINGS, JSON.parse(savedSettings));
+
+                const savedNotice = localStorage.getItem('ucc_admin_notice');
+                if (savedNotice) document.getElementById('liveNoticeContent').textContent = savedNotice;
+
+                const savedWebhook = localStorage.getItem('ucc_sheet_webhook');
+                if (savedWebhook) {
+                    GOOGLE_SHEET_WEBHOOK_URL = savedWebhook;
+                } else {
+                    localStorage.setItem('ucc_sheet_webhook', GOOGLE_SHEET_WEBHOOK_URL);
+                }
+                const el = document.getElementById('admWebhookUrlInput');
+                if (el) el.value = GOOGLE_SHEET_WEBHOOK_URL;
+
+                const storedTests = localStorage.getItem('ucc_all_tests');
+                if (storedTests) ALL_TESTS = JSON.parse(storedTests);
+
+                const storedNotes = localStorage.getItem('ucc_all_notes');
+                if (storedNotes) ALL_NOTES = JSON.parse(storedNotes);
+
+                const storedRegs = localStorage.getItem('ucc_registered_students');
+                if (storedRegs) REGISTERED_STUDENTS = JSON.parse(storedRegs);
+
+                const savedStudent = localStorage.getItem('ucc_active_student');
+                if (savedStudent) {
+                    currentStudent = JSON.parse(savedStudent);
+                    loadDashboard();
+                }
+            } catch(e) {}
+
+            applyInstituteSettingsUI();
+            renderStudentTestsList();
+            renderStudentNotesList();
+            populateSessionOptions();
+            checkAndPromptActiveExamSession();
+            updateAdminDashboardMetrics();
+        });
+
+        function updateAdminDashboardMetrics() {
+            document.getElementById('snapTotalStudents').textContent = REGISTERED_STUDENTS.length;
+            const liveTests = ALL_TESTS.filter(t => t.isActive !== false).length;
+            document.getElementById('snapActiveTests').textContent = liveTests;
+            document.getElementById('snapTotalNotes').textContent = ALL_NOTES.length;
+            document.getElementById('snapCutoff').textContent = `${appSettings.passCutoff || 40}%`;
+        }
+
+        function applyInstituteSettingsUI() {
+            document.getElementById('pageTitle').textContent = `${appSettings.instName} • डिजिटल लर्निंग पोर्टल`;
+            document.getElementById('headerInstTitle').textContent = appSettings.instName;
+            document.getElementById('headerInstSubtitle').textContent = appSettings.instSubtitle;
+            document.getElementById('loginCardTitle').textContent = appSettings.instName;
+            document.getElementById('loginCardSubtitle').textContent = `${appSettings.instName} विद्यार्थी डिजिटल पोर्टल`;
+            document.getElementById('dashCenterName').textContent = appSettings.instName;
+            document.getElementById('scoreBadgeInst').textContent = appSettings.instName;
+
+            // Contact page elements
+            document.getElementById('cntInstName').textContent = `🏛️ ${appSettings.instName}`;
+            document.getElementById('cntAddress').textContent = appSettings.address;
+            document.getElementById('cntDirector').textContent = appSettings.director;
+            document.getElementById('cntPhone').textContent = appSettings.phone;
+            document.getElementById('cntPhoneLink').href = `tel:${appSettings.phone.replace(/[^0-9+]/g, '')}`;
+
+            if (appSettings.altPhone) {
+                document.getElementById('cntAltPhoneRow').classList.remove('hidden');
+                document.getElementById('cntAltPhone').textContent = appSettings.altPhone;
+            } else {
+                document.getElementById('cntAltPhoneRow').classList.add('hidden');
+            }
+
+            const activeEmail = appSettings.email || "uniqueclassesedu@gmail.com";
+            document.getElementById('cntEmail').textContent = activeEmail;
+            document.getElementById('displayModalEmail').textContent = activeEmail;
+            document.getElementById('cntBatches').textContent = appSettings.batches;
+
+            document.getElementById('cntMapsLinkBtn').href = appSettings.mapsLink;
+            document.getElementById('cntWaLinkBtn').href = appSettings.waLink;
+            document.getElementById('footerCopyText').textContent = appSettings.footerCopy;
+        }
+
+        function populateSessionOptions() {
+            const sel = document.getElementById('regSession');
+            if (!sel) return;
+            sel.innerHTML = "";
+            const sessionList = (appSettings.sessions || "2025-26, 2026-27, 2027-28").split(',').map(s => s.trim()).filter(Boolean);
+            sessionList.forEach((sess, idx) => {
+                const opt = document.createElement('option');
+                opt.value = sess;
+                opt.textContent = `सत्र ${sess}`;
+                if (idx === sessionList.length - 1 || sess.includes('2026-27')) opt.selected = true;
+                sel.appendChild(opt);
+            });
+        }
+
+        // CBT RECOVERY & ANTI-CRASH AUTOSAVE SYSTEM
+        function saveActiveExamSessionLocally() {
+            if (!currentActiveTest || !currentStudent) return;
+            const sessionData = {
+                testId: currentActiveTest.id,
+                testTitle: currentActiveTest.title,
+                studentMobile: currentStudent.mobile,
+                cbtIndex: cbtIndex,
+                userAnswers: userAnswers,
+                userLocks: userLocks,
+                userReviews: userReviews,
+                cbtCautionCount: cbtCautionCount,
+                timerSeconds: timerSeconds,
+                updatedAt: Date.now()
+            };
+            try {
+                localStorage.setItem(`ucc_active_exam_${currentStudent.mobile}`, JSON.stringify(sessionData));
+            } catch(e) {}
+        }
+
+        function clearActiveExamSession() {
+            if (!currentStudent) return;
+            try {
+                localStorage.removeItem(`ucc_active_exam_${currentStudent.mobile}`);
+            } catch(e) {}
+            const banner = document.getElementById('resumeActiveExamBanner');
+            if (banner) banner.classList.add('hidden');
+        }
+
+        function checkAndPromptActiveExamSession() {
+            if (!currentStudent) return;
+            try {
+                const raw = localStorage.getItem(`ucc_active_exam_${currentStudent.mobile}`);
+                if (!raw) return;
+                const sess = JSON.parse(raw);
+                if (sess && sess.testId && sess.timerSeconds > 10) {
+                    const banner = document.getElementById('resumeActiveExamBanner');
+                    if (banner) {
+                        document.getElementById('resumeTestTitleText').textContent = sess.testTitle || "मॉक टेस्ट";
+                        banner.classList.remove('hidden');
+                    }
+                }
+            } catch(e) {}
+        }
+
+        function resumeExistingExam() {
+            if (!currentStudent) return;
+            try {
+                const raw = localStorage.getItem(`ucc_active_exam_${currentStudent.mobile}`);
+                if (!raw) return;
+                const sess = JSON.parse(raw);
+                const foundTest = ALL_TESTS.find(t => t.id === sess.testId);
+                if (!foundTest) {
+                    alert("परीक्षा डेटा उपलब्ध नहीं है!");
+                    clearActiveExamSession();
+                    return;
+                }
+
+                currentActiveTest = foundTest;
+                const qLen = currentActiveTest.questions.length;
+                userAnswers = sess.userAnswers || new Array(qLen).fill(null);
+                userLocks = sess.userLocks || new Array(qLen).fill(false);
+                userReviews = sess.userReviews || new Array(qLen).fill(false);
+                cbtCautionCount = sess.cbtCautionCount || 0;
+                cbtIndex = sess.cbtIndex || 0;
+                timerSeconds = Math.max(10, Number(sess.timerSeconds) || 60);
+
+                document.getElementById('engineHeaderTitle').textContent = currentActiveTest.title;
+                document.getElementById('qTotalText').textContent = qLen;
+                document.getElementById('paletteTotalText').textContent = `कुल ${qLen}`;
+
+                hideAllViews();
+                document.getElementById('resumeActiveExamBanner').classList.add('hidden');
+                document.getElementById('viewCbtEngine').classList.remove('hidden');
+
+                buildPalette(qLen);
+                renderQuestion(cbtIndex);
+                startTimer();
+            } catch(err) {
+                alert("सत्र पुनर्प्राप्ति में त्रुटि!");
+                clearActiveExamSession();
+            }
+        }
+
+        function discardActiveSession() {
+            if (confirm("क्या आप इस अधूरी परीक्षा को रद्द करना चाहते हैं? आपकी प्रगति हटा दी जाएगी।")) {
+                clearActiveExamSession();
+            }
+        }
+
+        // STUDENT TEST HISTORY MANAGEMENT (ARCHIVE)
+        function getStudentHistoryKey() {
+            return `ucc_test_history_${currentStudent?.mobile || 'guest'}`;
+        }
+
+        function loadStudentHistoryFromStorage() {
+            try {
+                const raw = localStorage.getItem(getStudentHistoryKey());
+                return raw ? JSON.parse(raw) : [];
+            } catch(e) {
+                return [];
+            }
+        }
+
+        function saveStudentResultToHistory(resultData) {
+            try {
+                const history = loadStudentHistoryFromStorage();
+                history.unshift(resultData);
+                localStorage.setItem(getStudentHistoryKey(), JSON.stringify(history));
+                renderStudentHistoryUI();
+            } catch(e) {}
+        }
+
+        function renderStudentHistoryUI() {
+            const container = document.getElementById('studentHistoryListContainer');
+            const badge = document.getElementById('historyCountBadge');
+            if (!container) return;
+            container.innerHTML = "";
+
+            const history = loadStudentHistoryFromStorage();
+            if (badge) badge.textContent = `${history.length} टेस्ट दिए`;
+
+            if (history.length === 0) {
+                container.innerHTML = `
+                    <div class="card" style="text-align: center; padding: 40px 16px; color: #64748b;">
+                        <div style="font-size: 34px; margin-bottom: 8px;">📊</div>
+                        <h4 style="font-size: 15px; font-weight: 800; color: #334155;">अभी तक कोई परीक्षा नहीं दी गई है</h4>
+                        <p style="font-size: 12px; margin-top: 4px;">जैसे ही आप CBT टेस्ट पूरा करेंगे, आपका अंक, प्रतिशत और विस्तृत हल यहाँ स्थायी रूप से दर्ज हो जाएगा।</p>
+                        <button onclick="switchTab('tests')" class="btn-primary" style="width: auto; margin-top: 14px; padding: 10px 20px; font-size: 12px;">
+                            💻 पहला टेस्ट प्रारंभ करें →
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            history.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = "history-card";
+
+                const pctNum = parseFloat(item.pct) || 0;
+                let statusBadge = `<span class="badge badge-green">✓ उत्तीर्ण</span>`;
+                if (pctNum >= 85) {
+                    statusBadge = `<span class="badge badge-gold">🏆 उत्कृष्ट (Top Achiever)</span>`;
+                } else if (pctNum < (Number(appSettings.passCutoff) || 40)) {
+                    statusBadge = `<span class="badge badge-red">⚠️ सुधार आवश्यक</span>`;
+                }
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                        <div>
+                            <span class="badge badge-blue">${item.subject || 'मॉक टेस्ट'}</span>
+                            <h4 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-top: 4px;">
+                                ${item.title}
+                            </h4>
+                            <p style="font-size: 11px; color: #64748b; margin-top: 2px;">
+                                📅 परीक्षा दिनांक: <strong>${item.date}</strong> • समय: <strong>${item.timeSpent}</strong>
+                            </p>
+                        </div>
+                        ${statusBadge}
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center;">
+                        <div>
+                            <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase;">प्राप्तांक</span>
+                            <div style="font-size: 15px; font-weight: 900; color: #1d4ed8; margin-top: 2px;">${item.score}/${item.total}</div>
+                        </div>
+                        <div>
+                            <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase;">प्रतिशत</span>
+                            <div style="font-size: 15px; font-weight: 900; color: #059669; margin-top: 2px;">${item.pct}%</div>
+                        </div>
+                        <div>
+                            <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase;">सही प्रश्न</span>
+                            <div style="font-size: 15px; font-weight: 900; color: #16a34a; margin-top: 2px;">${item.correctCount} ✓</div>
+                        </div>
+                        <div>
+                            <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase;">गलत / छूटे</span>
+                            <div style="font-size: 15px; font-weight: 900; color: #dc2626; margin-top: 2px;">${item.incorrectCount} ✗</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-top: 10px;">
+                        <button onclick="openHistoricalReviewModal(${idx})" class="btn-primary btn-outline" style="width: auto; padding: 8px 16px; font-size: 12px;">
+                            🔍 गलत प्रश्न व संपूर्ण हल देखें
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openHistoricalReviewModal(historyIdx) {
+            const history = loadStudentHistoryFromStorage();
+            const item = history[historyIdx];
+            if (!item || !item.questionsSnapshot) {
+                alert("इस टेस्ट की विस्तृत समीक्षा उपलब्ध नहीं है!");
+                return;
+            }
+
+            activeHistoricalResult = item;
+            document.getElementById('histReviewTitle').textContent = item.title;
+            document.getElementById('histReviewMeta').textContent = `📅 दिनांक: ${item.date} • प्राप्तांक: ${item.score}/${item.total} (${item.pct}%) • समय: ${item.timeSpent}`;
+            document.getElementById('histCountAll').textContent = item.total;
+            document.getElementById('histCountCor').textContent = item.correctCount;
+            document.getElementById('histCountInc').textContent = item.incorrectCount;
+
+            currentHistFilter = 'all';
+            filterHistoricalSolutions('all');
+            document.getElementById('historicalReviewModal').classList.remove('hidden');
+        }
+
+        function closeHistoricalReviewModal() {
+            document.getElementById('historicalReviewModal').classList.add('hidden');
+            activeHistoricalResult = null;
+        }
+
+        function filterHistoricalSolutions(type) {
+            currentHistFilter = type;
+            ['all', 'cor', 'inc'].forEach(t => {
+                const chip = document.getElementById('histChip_' + t);
+                if (chip) chip.className = (t === type) ? 'filter-chip active' : 'filter-chip';
+            });
+            renderHistoricalSolutionsList();
+        }
+
+        function renderHistoricalSolutionsList() {
+            const box = document.getElementById('histSolutionsBox');
+            if (!box || !activeHistoricalResult) return;
+            box.innerHTML = "";
+
+            const letters = ['A', 'B', 'C', 'D'];
+            const questions = activeHistoricalResult.questionsSnapshot || [];
+            const userAnswers = activeHistoricalResult.userAnswersSnapshot || [];
+
+            questions.forEach((q, i) => {
+                const userAns = userAnswers[i];
+                const isCor = (userAns === q.cor);
+                const isUnanswered = (userAns === null || userAns === undefined);
+
+                if (currentHistFilter === 'cor' && !isCor) return;
+                if (currentHistFilter === 'inc' && isCor) return;
+
+                let cardClass = isCor ? "solution-card correct" : (isUnanswered ? "solution-card unanswered" : "solution-card incorrect");
+                let statusLabel = isCor ? `<span style="color:#16a34a; font-weight:900;">✓ सही उत्तर (+1)</span>` 
+                                        : (isUnanswered ? `<span style="color:#64748b; font-weight:900;">⊘ छूटा हुआ प्रश्न</span>`
+                                                       : `<span style="color:#dc2626; font-weight:900;">✗ गलत उत्तर (0)</span>`);
+
+                const d = document.createElement('div');
+                d.className = cardClass;
+                d.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="font-weight:900; font-size:12px; color:#334155; text-transform:uppercase;">प्रश्न ${i + 1} / ${questions.length}</span>
+                        ${statusLabel}
+                    </div>
+
+                    <p style="font-weight:800; font-size:14px; color:#0f172a; margin-bottom:4px; line-height:1.4;">
+                        ${q.hi}
+                    </p>
+                    ${q.en ? `<p style="font-size:12px; color:#64748b; margin-bottom:10px; font-style:italic;">${q.en}</p>` : ''}
+
+                    <div style="display:flex; flex-direction:column; gap:6px; margin:10px 0;">
+                        ${q.opts.map((opt, oIdx) => {
+                            let optBg = "#f8fafc";
+                            let optBorder = "#e2e8f0";
+                            let optColor = "#334155";
+                            let badgeIcon = "";
+
+                            if (oIdx === q.cor) {
+                                optBg = "#dcfce7";
+                                optBorder = "#86efac";
+                                optColor = "#166534";
+                                badgeIcon = " ✓ (सही उत्तर)";
+                            } else if (userAns === oIdx && !isCor) {
+                                optBg = "#fee2e2";
+                                optBorder = "#fca5a5";
+                                optColor = "#991b1b";
+                                badgeIcon = " ✗ (आपका चुना उत्तर)";
+                            }
+
+                            return `
+                                <div style="display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:${optBg}; border:1px solid ${optBorder}; color:${optColor}; font-size:12px; font-weight:700;">
+                                    <span style="display:inline-flex; width:22px; height:22px; border-radius:50%; background:rgba(0,0,0,0.06); align-items:center; justify-content:center; font-weight:900;">${letters[oIdx]}</span>
+                                    <span>${opt}</span>
+                                    <strong style="margin-left:auto; font-size:11px;">${badgeIcon}</strong>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    ${q.sol ? `
+                        <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:10px 12px; border-radius:8px; font-size:12px; color:#1e40af; margin-top:8px;">
+                            <strong>📐 चरणबद्ध हल (Step-by-Step Explanation):</strong><br>
+                            <span style="font-family:monospace; font-size:12px;">${q.sol}</span>
+                        </div>
+                    ` : ''}
+                `;
+                box.appendChild(d);
+            });
+        }
+
+        // SAFE IN-APP EMAIL ACTION MODAL
+        function openEmailActionModal() {
+            document.getElementById('displayModalEmail').textContent = appSettings.email || "uniqueclassesedu@gmail.com";
+            document.getElementById('emailActionModal').classList.remove('hidden');
+        }
+
+        function closeEmailActionModal() {
+            document.getElementById('emailActionModal').classList.add('hidden');
+        }
+
+        function launchGmailDraft() {
+            const email = appSettings.email || "uniqueclassesedu@gmail.com";
+            const subject = encodeURIComponent("UCC पोर्टल छात्र पूछताछ (Inquiry)");
+            const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${subject}`;
+            window.open(gmailWebUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyInstituteEmail() {
+            const email = appSettings.email || "uniqueclassesedu@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById('btnCopyEmailAction');
+                btn.textContent = "✓ ईमेल कॉपी हो गया!";
+                btn.style.background = "#dcfce7";
+                btn.style.color = "#15803d";
+                setTimeout(() => {
+                    btn.textContent = "📋 ईमेल आईडी कॉपी करें";
+                    btn.style.background = "transparent";
+                    btn.style.color = "#1d4ed8";
+                }, 2000);
+            }).catch(() => {
+                prompt("ईमेल कॉपी करें:", email);
+            });
+        }
+
+        // STUDENT FORGOT PASSCODE
+        function openStudentForgotPasscodeModal() {
+            document.getElementById('studentForgotMobInput').value = document.getElementById('loginMobile').value || "";
+            document.getElementById('studentForgotPassModal').classList.remove('hidden');
+        }
+
+        function closeStudentForgotPassModal() {
+            document.getElementById('studentForgotPassModal').classList.add('hidden');
+        }
+
+        function requestStudentPasscodeOnWhatsApp() {
+            const mob = document.getElementById('studentForgotMobInput').value.trim();
+            if (!mob || mob.length !== 10) {
+                alert("कृपया अपना 10 अंकों का WhatsApp नंबर दर्ज करें!");
+                return;
+            }
+            const phone = (appSettings.phone || "7067022719").replace(/[^0-9]/g, '');
+            const msg = encodeURIComponent(`नमस्ते सोम सर,\nमैं Unique Coaching Classes का छात्र हूँ।\nमेरा पंजीकृत मोबाइल नंबर: ${mob} है।\nमैं अपना लॉगिन पासकोड भूल गया हूँ, कृपया मुझे मेरा पासकोड प्रदान करने की कृपा करें।`);
+            window.open(`https://wa.me/91${phone}?text=${msg}`, '_blank', 'noopener,noreferrer');
+            closeStudentForgotPassModal();
+        }
+
+        // AUTH SWITCHER
+        function switchAuthMode(mode) {
+            const btnReg = document.getElementById('btnAuthTabReg');
+            const btnLogin = document.getElementById('btnAuthTabLogin');
+            const formReg = document.getElementById('studentRegisterForm');
+            const formLogin = document.getElementById('studentLoginForm');
+            const errBox = document.getElementById('loginErrorMsg');
+            if (errBox) errBox.classList.add('hidden');
+
+            if (mode === 'reg') {
+                btnReg.classList.add('active');
+                btnLogin.classList.remove('active');
+                formReg.classList.remove('hidden');
+                formLogin.classList.add('hidden');
+            } else {
+                btnLogin.classList.add('active');
+                btnReg.classList.remove('active');
+                formLogin.classList.remove('hidden');
+                formReg.classList.add('hidden');
+            }
+        }
+
+        // REGISTRATION SUBMIT
+        document.getElementById('studentRegisterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value.trim();
+            const mobile = document.getElementById('regMobile').value.trim();
+            const session = document.getElementById('regSession').value;
+            const address = document.getElementById('regAddress').value.trim();
+            const passcode = document.getElementById('regPasscode').value.trim();
+
+            if (!name || !mobile || !passcode) {
+                alert("कृपया सभी आवश्यक फ़ील्ड्स भरें!");
+                return;
+            }
+
+            const existing = REGISTERED_STUDENTS.find(s => s.mobile === mobile);
+            if (existing) {
+                alert("यह मोबाइल नंबर पहले से पंजीकृत है! कृपया 'विद्यार्थी लॉगिन' में जाकर अपना पासकोड दर्ज करें।");
+                switchAuthMode('login');
+                document.getElementById('loginMobile').value = mobile;
+                return;
+            }
+
+            const newStudent = {
+                name,
+                mobile,
+                session,
+                address,
+                passcode,
+                isActive: true,
+                registeredAt: new Date().toLocaleString('hi-IN')
+            };
+
+            REGISTERED_STUDENTS.push(newStudent);
+            try {
+                localStorage.setItem('ucc_registered_students', JSON.stringify(REGISTERED_STUDENTS));
+                localStorage.setItem('ucc_active_student', JSON.stringify(newStudent));
+            } catch(e) {}
+
+            sendDataDirectToGoogleSheet({
+                type: "REGISTRATION",
+                name: newStudent.name,
+                mobile: newStudent.mobile,
+                session: newStudent.session,
+                address: newStudent.address,
+                passcode: newStudent.passcode,
+                date: newStudent.registeredAt
+            });
+
+            currentStudent = newStudent;
+            updateAdminDashboardMetrics();
+            alert(`🎉 बधाई ${name}! आपका पंजीकरण सफलतापूर्वक संपन्न हो गया है। आपका पासकोड सुरक्षित है।`);
+            loadDashboard();
+        });
+
+        // LOGIN SUBMIT
+        document.getElementById('studentLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const mobile = document.getElementById('loginMobile').value.trim();
+            const passcode = document.getElementById('loginPasscode').value.trim();
+            const errBox = document.getElementById('loginErrorMsg');
+
+            const found = REGISTERED_STUDENTS.find(s => s.mobile === mobile && s.passcode === passcode);
+
+            if (found) {
+                if (found.isActive === false) {
+                    alert("⚠️ आपका खाता संचालक द्वारा अस्थायी रूप से निष्क्रिय (Blocked) किया गया है। कृपया सोम सर से संपर्क करें।");
+                    return;
+                }
+                errBox.classList.add('hidden');
+                currentStudent = found;
+                try { localStorage.setItem('ucc_active_student', JSON.stringify(found)); } catch(e) {}
+                loadDashboard();
+            } else {
+                errBox.classList.remove('hidden');
+            }
+        });
+
+        function loadDashboard() {
+            document.getElementById('viewLogin').classList.add('hidden');
+            document.getElementById('appNavBar').classList.remove('hidden');
+            document.getElementById('studentBadge').classList.remove('hidden');
+            document.getElementById('badgeName').textContent = currentStudent.name;
+            document.getElementById('footerAdminContainer').classList.add('hidden');
+
+            document.getElementById('dashName').textContent = currentStudent.name;
+            document.getElementById('dashMobile').textContent = currentStudent.mobile;
+            document.getElementById('dashAddress').textContent = currentStudent.address || "मेघा";
+            document.getElementById('dashSessionBadge').textContent = currentStudent.session || "सत्र 2026-27";
+
+            renderStudentTestsList();
+            renderStudentNotesList();
+            renderStudentHistoryUI();
+            checkAndPromptActiveExamSession();
+            switchTab('tests');
+        }
+
+        function logoutStudent() {
+            if (confirm("क्या आप लॉगआउट करना चाहते हैं?")) {
+                try { localStorage.removeItem('ucc_active_student'); } catch(e) {}
+                currentStudent = null;
+                document.getElementById('studentBadge').classList.add('hidden');
+                document.getElementById('appNavBar').classList.add('hidden');
+                document.getElementById('footerAdminContainer').classList.remove('hidden');
+                document.getElementById('resumeActiveExamBanner').classList.add('hidden');
+
+                hideAllViews();
+                document.getElementById('viewLogin').classList.remove('hidden');
+            }
+        }
+
+        function hideAllViews() {
+            ['viewLogin', 'viewTests', 'viewHistory', 'viewCbtEngine', 'viewScorecard', 'viewNotes', 'viewContact'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+        }
+
+        function switchTab(tab) {
+            hideAllViews();
+            ['tests', 'history', 'notes', 'contact'].forEach(t => {
+                const btn = document.getElementById('tabBtn_' + t);
+                if (btn) btn.className = (t === tab) ? "nav-btn active" : "nav-btn";
+            });
+
+            if (tab === 'tests') document.getElementById('viewTests').classList.remove('hidden');
+            if (tab === 'history') {
+                renderStudentHistoryUI();
+                document.getElementById('viewHistory').classList.remove('hidden');
+            }
+            if (tab === 'notes') document.getElementById('viewNotes').classList.remove('hidden');
+            if (tab === 'contact') document.getElementById('viewContact').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderStudentTestsList() {
+            const container = document.getElementById('dynamicTestsList');
+            if (!container) return;
+            container.innerHTML = "";
+            const activeOnlyTests = ALL_TESTS.filter(t => t.isActive !== false);
+            document.getElementById('testsCountBadge').textContent = `${activeOnlyTests.length} टेस्ट सक्रिय`;
+
+            ALL_TESTS.forEach((test, idx) => {
+                const isLive = test.isActive !== false;
+                const card = document.createElement('div');
+                card.className = "card";
+                card.style.border = (idx === 0) ? "2px solid #2563eb" : "1px solid #cbd5e1";
+                if (!isLive) card.style.opacity = "0.7";
+                
+                const demoBadge = (test.isFreeDemo || idx === 0) 
+                    ? `<span class="badge badge-gold">🎁 फ्री डेमो टेस्ट (Free Demo)</span>`
+                    : `<span class="badge badge-green">नियमित टेस्ट ✓</span>`;
+
+                const liveBadge = isLive 
+                    ? `<span class="badge badge-green">लाइव चालू ✓</span>` 
+                    : `<span class="badge badge-red">स्थगित / बंद ⏸</span>`;
+
+                const launchBtn = isLive 
+                    ? `<button onclick="launchCbtExam('${test.id}')" class="btn-primary" style="width: auto; padding: 11px 22px; font-size: 13px;">परीक्षा प्रारंभ करें →</button>`
+                    : `<button disabled style="width: auto; padding: 11px 22px; font-size: 13px; background:#94a3b8; color:#ffffff; border:none; border-radius:12px; font-weight:800; cursor:not-allowed;">अस्थायी रूप से बंद ⏸</button>`;
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <span class="badge badge-blue">${test.subject} • ${test.durationMin} मिनट</span>
+                            ${demoBadge}
+                        </div>
+                        ${liveBadge}
+                    </div>
+                    <h4 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-top: 4px; line-height: 1.4;">
+                        ${test.title}
+                    </h4>
+                    <p style="font-size: 13px; color: #64748b; margin-top: 4px;">
+                        कुल <strong>${test.questions.length}</strong> बहुविकल्पीय प्रश्न • पूर्णांक: <strong>${test.questions.length} अंक</strong> • निगेटिव मार्किंग: <strong>शून्य</strong>
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px; margin-top: 14px; flex-wrap: wrap; gap: 8px;">
+                        <span style="font-size: 12px; font-weight: 800; color: ${isLive ? '#15803d' : '#991b1b'}; display: flex; align-items: center; gap: 4px;">
+                            <span style="display:inline-block; width:8px; height:8px; background:${isLive ? '#22c55e' : '#ef4444'}; border-radius:50%;"></span>
+                            ${isLive ? 'ऑनलाइन CBT परीक्षा उपलब्ध' : 'प्रवेश बंद है'}
+                        </span>
+                        ${launchBtn}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ENHANCED NESTED SUB-FOLDERS NOTES RENDERING
+        function renderStudentNotesList() {
+            const container = document.getElementById('dynamicNotesContainer');
+            if (!container) return;
+            container.innerHTML = "";
+
+            if (ALL_NOTES.length === 0) {
+                container.innerHTML = `
+                    <div class="card" style="text-align: center; padding: 36px 16px; color: #64748b;">
+                        <div style="font-size: 32px; margin-bottom: 8px;">📂</div>
+                        <h4 style="font-size: 15px; font-weight: 800; color: #334155;">अभी कोई नोट्स या सब-फ़ोल्डर उपलब्ध नहीं है</h4>
+                        <p style="font-size: 12px; margin-top: 4px;">शिक्षक द्वारा एडमिन से मुख्य फ़ोल्डर व सब-फ़ोल्डर लिंक जोड़ते ही यहाँ विषयवार दिखाई देंगे।</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Group notes by Category / Main Subject Folder
+            const grouped = {};
+            ALL_NOTES.forEach(note => {
+                const cat = note.category || "सामान्य अध्ययन व नोट्स";
+                if (!grouped[cat]) grouped[cat] = [];
+                grouped[cat].push(note);
+            });
+
+            Object.keys(grouped).forEach(cat => {
+                const catBox = document.createElement('div');
+                catBox.className = "notes-cat-group";
+
+                const items = grouped[cat];
+                let subfoldersHtml = items.map(note => `
+                    <div style="display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border:1px solid #e2e8f0; padding:12px 14px; border-radius:12px; margin-bottom:8px; gap:10px;">
+                        <div style="min-width:0;">
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:16px;">📁</span>
+                                <strong style="font-size:14px; color:#0f172a;">${note.title}</strong>
+                            </div>
+                            <p style="font-size:11px; color:#64748b; margin-top:2px;">${note.desc || "अध्याय ई-नोट्स व DPP"}</p>
+                        </div>
+                        <a href="${note.driveUrl}" target="_blank" rel="noopener noreferrer" 
+                           style="padding:8px 14px; background:#0f172a; color:#ffffff; border-radius:10px; font-size:11px; font-weight:800; text-decoration:none; white-space:nowrap; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+                            सब-फ़ोल्डर खोलें ↗
+                        </a>
+                    </div>
+                `).join('');
+
+                catBox.innerHTML = `
+                    <div class="notes-cat-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:20px;">🗂️</span>
+                            <h4 style="font-size:15px; font-weight:900; color:#1e40af;">${cat}</h4>
+                        </div>
+                        <span class="badge badge-blue">${items.length} फ़ोल्डर</span>
+                    </div>
+                    <div>
+                        ${subfoldersHtml}
+                    </div>
+                `;
+                container.appendChild(catBox);
+            });
+        }
+
+        // CBT ENGINE LAUNCH
+        function launchCbtExam(testId) {
+            const found = ALL_TESTS.find(t => t.id === testId);
+            if (!found || !found.questions || found.questions.length === 0) {
+                alert("इस टेस्ट में अभी कोई प्रश्न नहीं हैं!");
+                return;
+            }
+            if (found.isActive === false) {
+                alert("⚠️ यह परीक्षा वर्तमान में संचालक द्वारा स्थगित की गई है!");
+                return;
+            }
+            currentActiveTest = found;
+            const qLen = currentActiveTest.questions.length;
+            userAnswers = new Array(qLen).fill(null);
+            userLocks = new Array(qLen).fill(false);
+            userReviews = new Array(qLen).fill(false);
+            cbtCautionCount = 0;
+            pendingLockIndex = null;
+            cbtIndex = 0;
+            timerSeconds = (currentActiveTest.durationMin || 60) * 60;
+
+            document.getElementById('engineHeaderTitle').textContent = currentActiveTest.title;
+            document.getElementById('qTotalText').textContent = qLen;
+            document.getElementById('paletteTotalText').textContent = `कुल ${qLen}`;
+            hideAllViews();
+            document.getElementById('resumeActiveExamBanner').classList.add('hidden');
+            document.getElementById('viewCbtEngine').classList.remove('hidden');
+
+            buildPalette(qLen);
+            renderQuestion(0);
+            saveActiveExamSessionLocally();
+            startTimer();
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                const m = Math.floor(timerSeconds / 60);
+                const s = timerSeconds % 60;
+                document.getElementById('timerDisplay').textContent = 
+                    `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+
+                if (timerSeconds % 5 === 0) {
+                    saveActiveExamSessionLocally();
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    finishExam();
+                }
+            }, 1000);
+        }
+
+        function buildPalette(total) {
+            const grid = document.getElementById('paletteGrid');
+            grid.innerHTML = "";
+            for (let i = 0; i < total; i++) {
+                const b = document.createElement('button');
+                b.id = `pal_${i}`;
+                b.textContent = i + 1;
+                b.className = "pal-btn";
+                b.onclick = () => renderQuestion(i);
+                grid.appendChild(b);
+            }
+            updatePaletteUI();
+        }
+
+        function updatePaletteUI() {
+            const total = currentActiveTest.questions.length;
+            for (let i = 0; i < total; i++) {
+                const b = document.getElementById(`pal_${i}`);
+                if (!b) continue;
+                b.className = "pal-btn";
+                if (i === cbtIndex) b.classList.add('active-q');
+
+                if (userLocks[i]) {
+                    b.classList.add('locked');
+                } else if (userReviews[i]) {
+                    b.classList.add('reviewed');
+                } else if (userAnswers[i] !== null) {
+                    b.classList.add('answered');
+                }
+            }
+        }
+
+        function renderQuestion(idx) {
+            cbtIndex = idx;
+            const q = currentActiveTest.questions[idx];
+            document.getElementById('qIndexText').textContent = idx + 1;
+            document.getElementById('qHindi').textContent = `${idx + 1}. ${q.hi}`;
+            document.getElementById('qEnglish').textContent = q.en ? `Q${idx + 1}. ${q.en}` : "";
+
+            const isLocked = userLocks[idx];
+            const lockedBanner = document.getElementById('qLockedBanner');
+            const lockBtn = document.getElementById('btnLock');
+
+            if (isLocked) {
+                lockedBanner.classList.remove('hidden');
+                lockBtn.disabled = true;
+                lockBtn.style.opacity = "0.5";
+                lockBtn.style.cursor = "not-allowed";
+                lockBtn.textContent = "उत्तर लॉक है ✓";
+            } else {
+                lockedBanner.classList.add('hidden');
+                const hasSelected = userAnswers[idx] !== null;
+                lockBtn.disabled = !hasSelected;
+                lockBtn.style.opacity = hasSelected ? "1" : "0.5";
+                lockBtn.style.cursor = hasSelected ? "pointer" : "not-allowed";
+                lockBtn.textContent = "🔒 उत्तर लॉक करें";
+            }
+
+            const box = document.getElementById('optionsContainer');
+            box.innerHTML = "";
+            const letters = ['A', 'B', 'C', 'D'];
+
+            q.opts.forEach((opt, oIdx) => {
+                const isSel = (userAnswers[idx] === oIdx);
+                const btn = document.createElement('button');
+                btn.className = `option-btn ${isSel ? 'selected' : ''}`;
+                btn.style.cursor = isLocked ? "not-allowed" : "pointer";
+
+                btn.onclick = () => {
+                    if (userLocks[cbtIndex]) return;
+                    userAnswers[cbtIndex] = oIdx;
+                    saveActiveExamSessionLocally();
+                    renderQuestion(cbtIndex);
+                };
+
+                btn.innerHTML = `
+                    <span class="option-circle">${letters[oIdx]}</span>
+                    <span>${opt}</span>
+                `;
+                box.appendChild(btn);
+            });
+
+            document.getElementById('btnPrev').disabled = (idx === 0);
+            document.getElementById('btnNext').disabled = (idx === currentActiveTest.questions.length - 1);
+
+            const revBtn = document.getElementById('btnReview');
+            if (userReviews[idx]) {
+                revBtn.style.background = "#9333ea";
+                revBtn.style.color = "#ffffff";
+                revBtn.textContent = "रिव्यू चिह्नित ✓";
+            } else {
+                revBtn.style.background = "#ffffff";
+                revBtn.style.color = "#9333ea";
+                revBtn.textContent = "रिव्यू में रखें";
+            }
+
+            updatePaletteUI();
+        }
+
+        function prevQ() { if (cbtIndex > 0) renderQuestion(cbtIndex - 1); }
+        function nextQ() { if (cbtIndex < currentActiveTest.questions.length - 1) renderQuestion(cbtIndex + 1); }
+
+        function toggleReview() {
+            userReviews[cbtIndex] = !userReviews[cbtIndex];
+            saveActiveExamSessionLocally();
+            renderQuestion(cbtIndex);
+        }
+
+        function requestLockAnswer() {
+            if (userAnswers[cbtIndex] === null || userLocks[cbtIndex]) return;
+
+            if (cbtCautionCount < 2) {
+                pendingLockIndex = cbtIndex;
+                document.getElementById('cbtCautionModal').classList.remove('hidden');
+            } else {
+                userLocks[cbtIndex] = true;
+                saveActiveExamSessionLocally();
+                renderQuestion(cbtIndex);
+            }
+        }
+
+        function dismissCautionModal() {
+            pendingLockIndex = null;
+            document.getElementById('cbtCautionModal').classList.add('hidden');
+        }
+
+        function confirmCautionLock() {
+            document.getElementById('cbtCautionModal').classList.add('hidden');
+            if (pendingLockIndex !== null) {
+                userLocks[pendingLockIndex] = true;
+                cbtCautionCount++;
+                saveActiveExamSessionLocally();
+                renderQuestion(pendingLockIndex);
+                pendingLockIndex = null;
+            }
+        }
+
+        function promptSubmit() {
+            document.getElementById('cbtSubmitConfirmModal').classList.remove('hidden');
+        }
+
+        function closeSubmitConfirmModal() {
+            document.getElementById('cbtSubmitConfirmModal').classList.add('hidden');
+        }
+
+        function confirmFinalSubmit() {
+            document.getElementById('cbtSubmitConfirmModal').classList.add('hidden');
+            finishExam();
+        }
+
+        function finishExam() {
+            if (timerInterval) clearInterval(timerInterval);
+
+            let score = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let unattemptedCount = 0;
+            const questions = currentActiveTest.questions;
+            const total = questions.length;
+
+            questions.forEach((q, i) => {
+                if (userAnswers[i] === null || userAnswers[i] === undefined) {
+                    unattemptedCount++;
+                } else if (userAnswers[i] === q.cor) {
+                    score++;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            });
+
+            const pct = ((score / total) * 100).toFixed(1);
+            const accuracy = (total - unattemptedCount > 0) ? (((correctCount / (total - unattemptedCount))) * 100).toFixed(0) : 0;
+            const spentSec = ((currentActiveTest.durationMin || 60) * 60) - timerSeconds;
+            const spentMins = Math.floor(spentSec / 60);
+            const spentSecsRem = spentSec % 60;
+            const spentFormatted = `${spentMins} मिनट ${spentSecsRem} सेकंड`;
+
+            const fullRecord = {
+                id: "res_" + Date.now(),
+                testId: currentActiveTest.id,
+                title: currentActiveTest.title,
+                subject: currentActiveTest.subject || "मॉक टेस्ट",
+                studentName: currentStudent?.name || "विद्यार्थी",
+                mobile: currentStudent?.mobile || "-",
+                score: score,
+                total: total,
+                pct: pct,
+                accuracy: accuracy,
+                timeSpent: spentFormatted,
+                correctCount: correctCount,
+                incorrectCount: incorrectCount + unattemptedCount,
+                date: new Date().toLocaleString('hi-IN'),
+                questionsSnapshot: JSON.parse(JSON.stringify(questions)),
+                userAnswersSnapshot: [...userAnswers]
+            };
+
+            lastTestResult = fullRecord;
+            clearActiveExamSession();
+            saveStudentResultToHistory(fullRecord);
+
+            hideAllViews();
+            document.getElementById('viewScorecard').classList.remove('hidden');
+
+            document.getElementById('scoreTestTitle').textContent = currentActiveTest.title;
+            document.getElementById('scoreName').textContent = currentStudent?.name || "विद्यार्थी";
+            document.getElementById('scoreMobile').textContent = currentStudent?.mobile || "-";
+            document.getElementById('scoreMarksBig').textContent = score;
+            document.getElementById('scoreMarksDenom').textContent = `कुल ${total} अंक`;
+
+            const rankBadge = document.getElementById('scoreRankBadge');
+            const passCut = Number(appSettings.passCutoff) || 40;
+
+            if (pct >= 85) {
+                rankBadge.innerHTML = "🏆 उत्कृष्ट रैंक (Top Achiever)";
+                rankBadge.style.background = "rgba(34, 197, 94, 0.25)";
+            } else if (pct >= 60) {
+                rankBadge.innerHTML = "🎯 प्रथम श्रेणी (Strong Performance)";
+                rankBadge.style.background = "rgba(59, 130, 246, 0.25)";
+            } else if (pct >= passCut) {
+                rankBadge.innerHTML = "💡 उत्तीर्ण (Passed)";
+                rankBadge.style.background = "rgba(245, 158, 11, 0.25)";
+            } else {
+                rankBadge.innerHTML = "⚠️ अनुत्तीर्ण / विशेष सुधार आवश्यक";
+                rankBadge.style.background = "rgba(239, 68, 68, 0.25)";
+            }
+
+            document.getElementById('statScore').textContent = `${score} / ${total}`;
+            document.getElementById('statPercent').textContent = `${pct}%`;
+            document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('statTime').textContent = `${spentMins}m ${spentSecsRem}s`;
+
+            document.getElementById('countAll').textContent = total;
+            document.getElementById('countCor').textContent = correctCount;
+            document.getElementById('countInc').textContent = incorrectCount + unattemptedCount;
+            document.getElementById('solutionsTotalBadge').textContent = `कुल ${total} प्रश्न`;
+
+            const fbBox = document.getElementById('scoreFeedbackBox');
+            if (spentSec < 180 && total >= 10) {
+                fbBox.style.background = "#fef2f2";
+                fbBox.style.borderColor = "#f87171";
+                fbBox.color = "#991b1b";
+                fbBox.innerHTML = `⚠️ <strong>अत्यधिक तेज़ सबमिशन (${spentMins} मिनट):</strong> आपने प्रश्नों को रफ़ कॉपी में हल किए बिना जल्दबाजी में टिक किया है। प्रयास आवासीय चयन के लिए प्रत्येक प्रश्न पर एकाग्रता से गणना अनिवार्य है।`;
+            } else if (score <= Math.floor(total * 0.3)) {
+                fbBox.style.background = "#fef2f2";
+                fbBox.style.borderColor = "#f87171";
+                fbBox.color = "#991b1b";
+                fbBox.innerHTML = `⚠️ <strong>बुनियादी समझ का अभाव (${score}/${total}):</strong> मूल नियमों में गंभीर कमियाँ हैं। कोचिंग में शिक्षक से इन प्रश्नों को दोबारा समझें और नीचे दिए गए हलों को अपनी फेयर कॉपी में नोट करें।`;
+            } else if (score <= Math.floor(total * 0.65)) {
+                fbBox.style.background = "#fffbeb";
+                fbBox.style.borderColor = "#fcd34d";
+                fbBox.color = "#92400e";
+                fbBox.innerHTML = `💡 <strong>सराहनीय प्रयास (${score}/${total}):</strong> आपकी बुनियादी अवधारणाएं ठीक हैं, परंतु इबारती प्रश्नों और तिर्यक गणनाओं में गलतियाँ हुईं। इन हलों का 2 बार अभ्यास करने पर स्कोर 80%+ हो जाएगा।`;
+            } else {
+                fbBox.style.background = "#f0fdf4";
+                fbBox.style.borderColor = "#86efac";
+                fbBox.color = "#166534";
+                fbBox.innerHTML = `🎯 <strong>उत्कृष्ट स्तर (${score}/${total}):</strong> चयन मानक के अनुरूप बहुत सुंदर प्रदर्शन! इसी गति और सटीकता को मुख्य परीक्षा तक बनाए रखें।`;
+            }
+
+            currentSolutionFilter = 'all';
+            renderSolutionsList();
+
+            // Direct Cloud Sync to Som Sir's Master Spreadsheet
+            sendDataDirectToGoogleSheet({
+                type: "TEST_RESULT",
+                name: currentStudent?.name || "विद्यार्थी",
+                mobile: currentStudent?.mobile || "-",
+                session: currentStudent?.session || "2026-27",
+                testTitle: currentActiveTest.title,
+                score: `${score}/${total}`,
+                percentage: `${pct}%`,
+                correctCount: correctCount,
+                incorrectCount: incorrectCount + unattemptedCount,
+                timeTaken: spentFormatted,
+                date: new Date().toLocaleString('hi-IN')
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterSolutions(type) {
+            currentSolutionFilter = type;
+            ['all', 'cor', 'inc'].forEach(t => {
+                const chip = document.getElementById('chip_' + t);
+                if (chip) chip.className = (t === type) ? 'filter-chip active' : 'filter-chip';
+            });
+            renderSolutionsList();
+        }
+
+        function renderSolutionsList() {
+            const solBox = document.getElementById('solutionsBox');
+            if (!solBox || !currentActiveTest) return;
+            solBox.innerHTML = "";
+            const letters = ['A', 'B', 'C', 'D'];
+            const questions = currentActiveTest.questions;
+
+            questions.forEach((q, i) => {
+                const userAns = userAnswers[i];
+                const isCor = (userAns === q.cor);
+                const isUnanswered = (userAns === null);
+
+                if (currentSolutionFilter === 'cor' && !isCor) return;
+                if (currentSolutionFilter === 'inc' && isCor) return;
+
+                let cardClass = isCor ? "solution-card correct" : (isUnanswered ? "solution-card unanswered" : "solution-card incorrect");
+                let statusLabel = isCor ? `<span style="color:#16a34a; font-weight:900;">✓ सही उत्तर (+1 अंक)</span>` 
+                                        : (isUnanswered ? `<span style="color:#64748b; font-weight:900;">⊘ अनुत्तरित (छोड़ा गया)</span>`
+                                                       : `<span style="color:#dc2626; font-weight:900;">✗ गलत उत्तर (0 अंक)</span>`);
+
+                const d = document.createElement('div');
+                d.className = cardClass;
+                d.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="font-weight:900; font-size:12px; color:#334155; text-transform:uppercase;">प्रश्न ${i + 1} / ${questions.length}</span>
+                        ${statusLabel}
+                    </div>
+
+                    <p style="font-weight:800; font-size:14px; color:#0f172a; margin-bottom:4px; line-height:1.4;">
+                        ${q.hi}
+                    </p>
+                    ${q.en ? `<p style="font-size:12px; color:#64748b; margin-bottom:10px; font-style:italic;">${q.en}</p>` : ''}
+
+                    <div style="display:flex; flex-direction:column; gap:6px; margin:10px 0;">
+                        ${q.opts.map((opt, oIdx) => {
+                            let optBg = "#f8fafc";
+                            let optBorder = "#e2e8f0";
+                            let optColor = "#334155";
+                            let badgeIcon = "";
+
+                            if (oIdx === q.cor) {
+                                optBg = "#dcfce7";
+                                optBorder = "#86efac";
+                                optColor = "#166534";
+                                badgeIcon = " ✓ (सही उत्तर)";
+                            } else if (userAns === oIdx && !isCor) {
+                                optBg = "#fee2e2";
+                                optBorder = "#fca5a5";
+                                optColor = "#991b1b";
+                                badgeIcon = " ✗ (आपका उत्तर)";
+                            }
+
+                            return `
+                                <div style="display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:${optBg}; border:1px solid ${optBorder}; color:${optColor}; font-size:12px; font-weight:700;">
+                                    <span style="display:inline-flex; width:22px; height:22px; border-radius:50%; background:rgba(0,0,0,0.06); align-items:center; justify-content:center; font-weight:900;">${letters[oIdx]}</span>
+                                    <span>${opt}</span>
+                                    <strong style="margin-left:auto; font-size:11px;">${badgeIcon}</strong>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    ${q.sol ? `
+                        <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:10px 12px; border-radius:8px; font-size:12px; color:#1e40af; margin-top:8px;">
+                            <strong>📐 चरणबद्ध हल (Step-by-Step Explanation):</strong><br>
+                            <span style="font-family:monospace; font-size:12px;">${q.sol}</span>
+                        </div>
+                    ` : ''}
+                `;
+                solBox.appendChild(d);
+            });
+        }
+
+        // WHATSAPP SHARING
+        function getScorecardShareText() {
+            if (!lastTestResult) return "";
+            const r = lastTestResult;
+            return `🏆 *${appSettings.instName.toUpperCase()}* 🏆\n📋 *${r.title}*\n━━━━━━━━━━━━━━━━━━━━\n👤 *विद्यार्थी:* ${r.studentName}\n📱 *मोबाइल:* ${r.mobile}\n🎯 *प्राप्तांक:* ${r.score} / ${r.total}\n📊 *प्रतिशत:* ${r.pct}%\n🎯 *सटीकता:* ${r.accuracy}%\n⏱️ *समय लगा:* ${r.timeSpent}\n━━━━━━━━━━━━━━━━━━━━\n📍 *${appSettings.instName} (${appSettings.address})*\nडिजिटल टेस्ट पोर्टल`;
+        }
+
+        function shareScorecardWhatsApp() {
+            const text = getScorecardShareText();
+            if (!text) return;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyScorecardText() {
+            const text = getScorecardShareText();
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('btnCopyScore');
+                btn.textContent = "✓ टेक्स्ट कॉपी हो गया!";
+                btn.style.background = "#dcfce7";
+                btn.style.color = "#15803d";
+                setTimeout(() => {
+                    btn.textContent = "📋 टेक्स्ट कॉपी करें";
+                    btn.style.background = "transparent";
+                    btn.style.color = "#1d4ed8";
+                }, 2500);
+            }).catch(() => {
+                prompt("स्कोरकार्ड टेक्स्ट कॉपी करें:", text);
+            });
+        }
+
+        function sendDataDirectToGoogleSheet(payload) {
+            if (!GOOGLE_SHEET_WEBHOOK_URL) return;
+            try {
+                fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(e => console.log('Sheet Sync Background Handled:', e));
+            } catch(e) {}
+        }
+
+        // ADMIN ACCESS & PASSCODE LOGIC
+        function promptAdminAccess() {
+            document.getElementById('adminPasswordInput').value = "";
+            document.getElementById('adminAuthError').classList.add('hidden');
+            document.getElementById('adminAuthModal').classList.remove('hidden');
+        }
+
+        function closeAdminAuthModal() {
+            document.getElementById('adminAuthModal').classList.add('hidden');
+        }
+
+        function verifyAdminPassword() {
+            const pass = document.getElementById('adminPasswordInput').value.trim();
+            if (pass === ADMIN_PASSCODE || pass === ADMIN_MASTER_SECRET) {
+                closeAdminAuthModal();
+                openAdminPortal();
+            } else {
+                document.getElementById('adminAuthError').classList.remove('hidden');
+            }
+        }
+
+        function openForgotPinModal() {
+            closeAdminAuthModal();
+            document.getElementById('recoveryEnteredOtp').value = "";
+            document.getElementById('recoveryMasterSecretInput').value = "";
+            document.getElementById('recoveryNewPinInput').value = "";
+            document.getElementById('recoveryErrorMsg').classList.add('hidden');
+            document.getElementById('recoverySuccessMsg').classList.add('hidden');
+            document.getElementById('recoveryOtpSection').classList.add('hidden');
+            document.getElementById('adminForgotPinModal').classList.remove('hidden');
+        }
+
+        function closeForgotPinModal() {
+            document.getElementById('adminForgotPinModal').classList.add('hidden');
+        }
+
+        // REAL GMAIL OTP REQUEST
+        function requestLiveGmailOtp() {
+            const btn = document.getElementById('btnSendOtp');
+            btn.disabled = true;
+            btn.textContent = "⏳ Gmail पर OTP भेजा जा रहा है...";
+            const errEl = document.getElementById('recoveryErrorMsg');
+            const succEl = document.getElementById('recoverySuccessMsg');
+            errEl.classList.add('hidden');
+            succEl.classList.add('hidden');
+
+            liveGeneratedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+
+            if (GOOGLE_SHEET_WEBHOOK_URL) {
+                fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: "SEND_ADMIN_OTP",
+                        email: "uniqueclassesedu@gmail.com",
+                        otp: liveGeneratedOtp,
+                        date: new Date().toISOString()
+                    })
+                }).catch(e => console.log("OTP Send trigger:", e));
+            }
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.textContent = "✓ OTP भेजा गया (पुनः भेजें)";
+                document.getElementById('recoveryOtpSection').classList.remove('hidden');
+                succEl.textContent = `✓ सोम सर, 6-अंकों का गुप्त OTP आपके Gmail (${appSettings.email}) पर प्रेषित कर दिया गया है। अपना इनबॉक्स चेक करें।`;
+                succEl.classList.remove('hidden');
+            }, 1200);
+        }
+
+        function executeSecureAdminPinReset() {
+            const enteredOtp = document.getElementById('recoveryEnteredOtp').value.trim();
+            const enteredMasterSecret = document.getElementById('recoveryMasterSecretInput').value.trim();
+            const newPin = document.getElementById('recoveryNewPinInput').value.trim();
+            const errEl = document.getElementById('recoveryErrorMsg');
+            const succEl = document.getElementById('recoverySuccessMsg');
+            errEl.classList.add('hidden');
+
+            let isAuthorized = false;
+
+            if (liveGeneratedOtp && enteredOtp === liveGeneratedOtp) {
+                isAuthorized = true;
+            } else if (enteredMasterSecret && enteredMasterSecret === ADMIN_MASTER_SECRET) {
+                isAuthorized = true;
+            }
+
+            if (!isAuthorized) {
+                errEl.textContent = "❌ अमान्य प्रमाणीकरण! कृपया Gmail पर प्राप्त सही 6-अंकों का OTP अथवा सोम सर की मास्टर गुप्त कुंजी दर्ज करें। कोई भी छात्र इसे रीसेट नहीं कर सकता।";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            if (!newPin || newPin.length < 4) {
+                errEl.textContent = "❌ कृपया कम से कम 4 अंकों का नया एडमिन पिन बनाएं!";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            ADMIN_PASSCODE = newPin;
+            try { localStorage.setItem('ucc_admin_passcode', newPin); } catch(e) {}
+
+            closeForgotPinModal();
+            alert(`🎉 बधाई सोम सर! आपका एडमिन पिन सफलतापूर्वक रीसेट हो गया है।\nनया पिन: ${newPin}`);
+            promptAdminAccess();
+        }
+
+        function openAdminPortal() {
+            switchAdminTab('testsList');
+            renderAdminTestsList();
+            renderAdminNotesList();
+            renderAdminStudentsDirectory();
+            loadSettingsIntoAdminForm();
+            updateAdminDashboardMetrics();
+
+            document.getElementById('adminNoticeField').value = document.getElementById('liveNoticeContent').textContent.trim();
+            document.getElementById('admWebhookUrlInput').value = GOOGLE_SHEET_WEBHOOK_URL || "";
+            document.getElementById('admRecoveryEmailField').value = appSettings.email || "uniqueclassesedu@gmail.com";
+            document.getElementById('admMasterSecretConfig').value = ADMIN_MASTER_SECRET;
+            document.getElementById('adminPortalModal').classList.remove('hidden');
+        }
+
+        function closeAdminPortal() {
+            document.getElementById('adminPortalModal').classList.add('hidden');
+        }
+
+        function logoutAdminSecurely() {
+            closeAdminPortal();
+            alert("✓ एडमिन सत्र सफलतापूर्वक लॉक कर दिया गया है।");
+        }
+
+        function switchAdminTab(tab) {
+            const allTabs = ['testsList', 'createTest', 'manageNotes', 'studentsDirectory', 'instituteSettings', 'adminSecurity', 'backupRestore', 'sheetWebhook'];
+            allTabs.forEach(t => {
+                const el = document.getElementById('adminSec_' + t);
+                const btn = document.getElementById('admTabBtn_' + t);
+                if (el) el.classList.add('hidden');
+                if (btn) {
+                    btn.style.background = "#e2e8f0";
+                    btn.style.color = "#334155";
+                }
+            });
+
+            const activeSec = document.getElementById('adminSec_' + tab);
+            if (activeSec) activeSec.classList.remove('hidden');
+            const activeBtn = document.getElementById('admTabBtn_' + tab);
+            if (activeBtn) {
+                activeBtn.style.background = "#2563eb";
+                activeBtn.style.color = "#ffffff";
+            }
+        }
+
+        // ADMIN TESTS WITH LIVE / PAUSE TOGGLE
+        function renderAdminTestsList() {
+            const box = document.getElementById('adminTestsContainer');
+            box.innerHTML = "";
+
+            ALL_TESTS.forEach((t, i) => {
+                const isLive = t.isActive !== false;
+                const item = document.createElement('div');
+                item.style.padding = "12px";
+                item.style.background = "#f8fafc";
+                item.style.borderRadius = "10px";
+                item.style.border = "1px solid #e2e8f0";
+                item.style.display = "flex";
+                item.style.justifyContent = "space-between";
+                item.style.alignItems = "center";
+                item.style.flexWrap = "wrap";
+                item.style.gap = "8px";
+
+                item.innerHTML = `
+                    <div>
+                        <div style="font-weight:900; font-size:13px; color:#0f172a;">${t.title}</div>
+                        <div style="font-size:11px; color:#64748b; margin-top:2px;">
+                            ${t.subject} • ${t.durationMin} मिनट • ${t.questions.length} प्रश्न ${t.isFreeDemo ? '• [फ्री डेमो]' : ''}
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:6px; align-items: center;">
+                        <button onclick="toggleTestLiveStatus(${i})" style="padding:6px 10px; background:${isLive ? '#dcfce7' : '#fee2e2'}; color:${isLive ? '#15803d' : '#991b1b'}; border:1px solid ${isLive ? '#86efac' : '#fca5a5'}; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer;">
+                            ${isLive ? '🟢 लाइव (सक्रिय)' : '⏸ स्थगित (पॉज़)'}
+                        </button>
+                        <button onclick="copyTestCodeToClipboard(${i})" style="padding:6px 10px; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer;" title="इस टेस्ट का कोड कॉपी करें">कोड कॉपी</button>
+                        ${i > 0 ? `<button onclick="deleteTest(${i})" style="padding:6px 10px; background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer;">हटाएं</button>` : `<span style="font-size:11px; font-weight:800; color:#854d0e; background: #fef08a; padding: 4px 8px; border-radius: 6px;">डेमो</span>`}
+                    </div>
+                `;
+                box.appendChild(item);
+            });
+        }
+
+        function toggleTestLiveStatus(index) {
+            const t = ALL_TESTS[index];
+            t.isActive = (t.isActive === false) ? true : false;
+            saveTestsToStorage();
+            renderAdminTestsList();
+            renderStudentTestsList();
+            updateAdminDashboardMetrics();
+            alert(`✓ टेस्ट "${t.title}" की स्थिति बदलकर ${t.isActive ? 'लाइव (सक्रिय)' : 'स्थगित (पॉज़)'} कर दी गई है!`);
+        }
+
+        function deleteTest(index) {
+            if (confirm("क्या आप इस टेस्ट को हटाना चाहते हैं?")) {
+                ALL_TESTS.splice(index, 1);
+                saveTestsToStorage();
+                renderAdminTestsList();
+                renderStudentTestsList();
+                updateAdminDashboardMetrics();
+            }
+        }
+
+        // STUDENTS DIRECTORY WITH 1-CLICK WHATSAPP & STATUS
+        function renderAdminStudentsDirectory() {
+            const tbody = document.getElementById('adminStudentsTbody');
+            document.getElementById('admStudentsCount').textContent = REGISTERED_STUDENTS.length;
+            tbody.innerHTML = "";
+
+            if (REGISTERED_STUDENTS.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#94a3b8; padding:16px;">अभी कोई विद्यार्थी पंजीकृत नहीं है।</td></tr>`;
+                return;
+            }
+
+            REGISTERED_STUDENTS.forEach((st, idx) => {
+                const tr = document.createElement('tr');
+                const isAct = st.isActive !== false;
+                tr.innerHTML = `
+                    <td><strong>${st.name}</strong></td>
+                    <td>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <span>${st.mobile}</span>
+                            <button onclick="sendDirectWhatsAppToStudent('${st.mobile}', '${st.name}')" title="सीधे WhatsApp भेजें" style="padding:2px 6px; background:#22c55e; color:#ffffff; border:none; border-radius:4px; font-size:10px; font-weight:800; cursor:pointer;">💬</button>
+                        </div>
+                    </td>
+                    <td><span class="badge badge-blue" style="font-size:10px; padding:2px 6px;">${st.session || '-'}</span></td>
+                    <td><strong style="color:#d97706; font-family:monospace; font-size:13px; background:#fef3c7; padding:2px 6px; border-radius:4px;">${st.passcode}</strong></td>
+                    <td>
+                        <button onclick="toggleStudentActiveStatus(${idx})" style="padding:3px 6px; font-size:10px; font-weight:800; border-radius:4px; border:none; cursor:pointer; background:${isAct ? '#dcfce7' : '#fee2e2'}; color:${isAct ? '#15803d' : '#991b1b'};">
+                            ${isAct ? '✓ सक्रिय' : '⊘ ब्लॉक'}
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="editStudentPasscode(${idx})" style="padding:4px 8px; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer; margin-right:4px;">पिन बदलें</button>
+                        <button onclick="deleteStudentRecord(${idx})" style="padding:4px 8px; background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer;">हटाएं</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function sendDirectWhatsAppToStudent(mobile, name) {
+            const cleanMob = mobile.replace(/[^0-9]/g, '');
+            const msg = encodeURIComponent(`नमस्ते ${name},\nUnique Coaching Classes (UCC) Megha की ओर से महत्वपूर्ण सूचना:\nकृपया डिजिटल पोर्टल खोलकर अपनी पढ़ाई व आगामी CBT टेस्ट की तैयारी जारी रखें।`);
+            window.open(`https://wa.me/91${cleanMob}?text=${msg}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function toggleStudentActiveStatus(idx) {
+            const st = REGISTERED_STUDENTS[idx];
+            st.isActive = (st.isActive === false) ? true : false;
+            try { localStorage.setItem('ucc_registered_students', JSON.stringify(REGISTERED_STUDENTS)); } catch(e) {}
+            renderAdminStudentsDirectory();
+            alert(`✓ छात्र ${st.name} का खाता अब ${st.isActive ? 'सक्रिय (Active)' : 'निष्क्रिय (Blocked)'} कर दिया गया है।`);
+        }
+
+        function filterAdminStudents() {
+            const q = document.getElementById('searchStudentInput').value.toLowerCase().trim();
+            const rows = document.querySelectorAll('#adminStudentsTbody tr');
+            rows.forEach(r => {
+                const txt = r.textContent.toLowerCase();
+                r.style.display = txt.includes(q) ? '' : 'none';
+            });
+        }
+
+        function editStudentPasscode(idx) {
+            const st = REGISTERED_STUDENTS[idx];
+            const newPin = prompt(`${st.name} (${st.mobile}) का नया पासकोड PIN दर्ज करें:`, st.passcode);
+            if (newPin && newPin.trim()) {
+                st.passcode = newPin.trim();
+                try { localStorage.setItem('ucc_registered_students', JSON.stringify(REGISTERED_STUDENTS)); } catch(e) {}
+                renderAdminStudentsDirectory();
+                alert(`✓ ${st.name} का पासकोड सफलतापूर्वक अपडेट हो गया!`);
+            }
+        }
+
+        function deleteStudentRecord(idx) {
+            const st = REGISTERED_STUDENTS[idx];
+            if (confirm(`क्या आप ${st.name} (${st.mobile}) का पंजीकरण रिकॉर्ड हटाना चाहते हैं?`)) {
+                REGISTERED_STUDENTS.splice(idx, 1);
+                try { localStorage.setItem('ucc_registered_students', JSON.stringify(REGISTERED_STUDENTS)); } catch(e) {}
+                renderAdminStudentsDirectory();
+                updateAdminDashboardMetrics();
+            }
+        }
+
+        function exportStudentsToCsv() {
+            if (REGISTERED_STUDENTS.length === 0) {
+                alert("डाउनलोड करने के लिए कोई डेटा नहीं है!");
+                return;
+            }
+            let csv = "नाम,मोबाइल नंबर,सत्र,पासकोड PIN,पता,स्थिति,पंजीकरण दिनांक\n";
+            REGISTERED_STUDENTS.forEach(s => {
+                csv += `"${s.name}","${s.mobile}","${s.session}","${s.passcode}","${s.address}","${s.isActive !== false ? 'Active' : 'Blocked'}","${s.registeredAt || ''}"\n`;
+            });
+            const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `UCC_Students_List_${new Date().toISOString().slice(0,10)}.csv`;
+            link.click();
+        }
+
+        // INSTITUTE SETTINGS
+        function loadSettingsIntoAdminForm() {
+            document.getElementById('cfgInstName').value = appSettings.instName || "";
+            document.getElementById('cfgInstSubtitle').value = appSettings.instSubtitle || "";
+            document.getElementById('cfgDirector').value = appSettings.director || "";
+            document.getElementById('cfgEmail').value = appSettings.email || "uniqueclassesedu@gmail.com";
+            document.getElementById('cfgPhone').value = appSettings.phone || "";
+            document.getElementById('cfgAltPhone').value = appSettings.altPhone || "";
+            document.getElementById('cfgAddress').value = appSettings.address || "";
+            document.getElementById('cfgBatches').value = appSettings.batches || "";
+            document.getElementById('cfgPassCutoff').value = appSettings.passCutoff || 40;
+            document.getElementById('cfgSessions').value = appSettings.sessions || "";
+            document.getElementById('cfgMapsLink').value = appSettings.mapsLink || "";
+            document.getElementById('cfgWaLink').value = appSettings.waLink || "";
+            document.getElementById('cfgFooterCopy').value = appSettings.footerCopy || "";
+        }
+
+        function saveInstituteSettings() {
+            appSettings.instName = document.getElementById('cfgInstName').value.trim() || DEFAULT_SETTINGS.instName;
+            appSettings.instSubtitle = document.getElementById('cfgInstSubtitle').value.trim() || DEFAULT_SETTINGS.instSubtitle;
+            appSettings.director = document.getElementById('cfgDirector').value.trim() || DEFAULT_SETTINGS.director;
+            appSettings.email = document.getElementById('cfgEmail').value.trim() || "uniqueclassesedu@gmail.com";
+            appSettings.phone = document.getElementById('cfgPhone').value.trim() || DEFAULT_SETTINGS.phone;
+            appSettings.altPhone = document.getElementById('cfgAltPhone').value.trim();
+            appSettings.address = document.getElementById('cfgAddress').value.trim() || DEFAULT_SETTINGS.address;
+            appSettings.batches = document.getElementById('cfgBatches').value.trim() || DEFAULT_SETTINGS.batches;
+            appSettings.passCutoff = Number(document.getElementById('cfgPassCutoff').value) || 40;
+            appSettings.sessions = document.getElementById('cfgSessions').value.trim() || DEFAULT_SETTINGS.sessions;
+            appSettings.mapsLink = document.getElementById('cfgMapsLink').value.trim() || DEFAULT_SETTINGS.mapsLink;
+            appSettings.waLink = document.getElementById('cfgWaLink').value.trim() || DEFAULT_SETTINGS.waLink;
+            appSettings.footerCopy = document.getElementById('cfgFooterCopy').value.trim() || DEFAULT_SETTINGS.footerCopy;
+
+            try { localStorage.setItem('ucc_institute_settings', JSON.stringify(appSettings)); } catch(e) {}
+            applyInstituteSettingsUI();
+            populateSessionOptions();
+            updateAdminDashboardMetrics();
+            alert("✓ संस्थान व संपर्क सेटिंग्स सफलतापूर्वक अपडेट हो गईं!");
+        }
+
+        // ADMIN PIN CHANGE
+        function changeAdminPasscodeAction() {
+            const oldPin = document.getElementById('admOldPinInput').value.trim();
+            const newPin = document.getElementById('admNewPinInput').value.trim();
+            const newMaster = document.getElementById('admMasterSecretConfig').value.trim();
+
+            if (oldPin !== ADMIN_PASSCODE && oldPin !== ADMIN_MASTER_SECRET) {
+                alert("❌ वर्तमान पिन गलत है!");
+                return;
+            }
+
+            if (!newPin || newPin.length < 4) {
+                alert("❌ नया पिन कम से कम 4 अंकों का होना चाहिए!");
+                return;
+            }
+
+            ADMIN_PASSCODE = newPin;
+            if (newMaster && newMaster.length >= 4) {
+                ADMIN_MASTER_SECRET = newMaster;
+                try { localStorage.setItem('ucc_admin_master_secret', newMaster); } catch(e) {}
+            }
+            try { localStorage.setItem('ucc_admin_passcode', newPin); } catch(e) {}
+            document.getElementById('admOldPinInput').value = "";
+            document.getElementById('admNewPinInput').value = "";
+            alert("✓ बधाई! आपका नया एडमिन पिन व मास्टर सुरक्षा कुंजी सफलतापूर्वक सुरक्षित हो गई है।");
+        }
+
+        // BACKUP & RESTORE
+        function downloadFullInstituteBackup() {
+            const fullBackup = {
+                version: "2.6",
+                exportedAt: new Date().toISOString(),
+                settings: appSettings,
+                adminPasscode: ADMIN_PASSCODE,
+                adminMasterSecret: ADMIN_MASTER_SECRET,
+                tests: ALL_TESTS,
+                notes: ALL_NOTES,
+                students: REGISTERED_STUDENTS,
+                notice: document.getElementById('liveNoticeContent').textContent.trim(),
+                webhookUrl: GOOGLE_SHEET_WEBHOOK_URL
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(fullBackup, null, 2));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", `UCC_Complete_Backup_${new Date().toISOString().slice(0,10)}.json`);
+            dlAnchor.click();
+        }
+
+        function restoreInstituteBackupAction() {
+            const fileInput = document.getElementById('importBackupFileInput');
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("कृपया पहले एक वैध .json बैकअप फ़ाइल चुनें!");
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (parsed.settings) {
+                        appSettings = Object.assign({}, DEFAULT_SETTINGS, parsed.settings);
+                        localStorage.setItem('ucc_institute_settings', JSON.stringify(appSettings));
+                    }
+                    if (parsed.adminPasscode) {
+                        ADMIN_PASSCODE = parsed.adminPasscode;
+                        localStorage.setItem('ucc_admin_passcode', ADMIN_PASSCODE);
+                    }
+                    if (parsed.adminMasterSecret) {
+                        ADMIN_MASTER_SECRET = parsed.adminMasterSecret;
+                        localStorage.setItem('ucc_admin_master_secret', ADMIN_MASTER_SECRET);
+                    }
+                    if (parsed.tests && Array.isArray(parsed.tests)) {
+                        ALL_TESTS = parsed.tests;
+                        localStorage.setItem('ucc_all_tests', JSON.stringify(ALL_TESTS));
+                    }
+                    if (parsed.notes && Array.isArray(parsed.notes)) {
+                        ALL_NOTES = parsed.notes;
+                        localStorage.setItem('ucc_all_notes', JSON.stringify(ALL_NOTES));
+                    }
+                    if (parsed.students && Array.isArray(parsed.students)) {
+                        REGISTERED_STUDENTS = parsed.students;
+                        localStorage.setItem('ucc_registered_students', JSON.stringify(REGISTERED_STUDENTS));
+                    }
+                    if (parsed.webhookUrl) {
+                        GOOGLE_SHEET_WEBHOOK_URL = parsed.webhookUrl;
+                        localStorage.setItem('ucc_sheet_webhook', GOOGLE_SHEET_WEBHOOK_URL);
+                    }
+                    if (parsed.notice) {
+                        localStorage.setItem('ucc_admin_notice', parsed.notice);
+                        document.getElementById('liveNoticeContent').textContent = parsed.notice;
+                    }
+
+                    applyInstituteSettingsUI();
+                    renderStudentTestsList();
+                    renderStudentNotesList();
+                    renderStudentHistoryUI();
+                    renderAdminTestsList();
+                    renderAdminNotesList();
+                    renderAdminStudentsDirectory();
+                    populateSessionOptions();
+                    updateAdminDashboardMetrics();
+
+                    alert("🎉 बधाई! बैकअप फ़ाइल से संपूर्ण कोचिंग डेटा सफलतापूर्वक रीस्टोर हो गया है!");
+                    closeAdminPortal();
+                } catch(err) {
+                    alert("❌ बैकअप फ़ाइल पढ़ने में त्रुटि: " + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // SUB-FOLDER NOTES MANAGEMENT
+        function addNewNotesFolder() {
+            const category = document.getElementById('admNewNoteCategory').value.trim() || "सामान्य अध्ययन व नोट्स";
+            const title = document.getElementById('admNewNoteTitle').value.trim();
+            const desc = document.getElementById('admNewNoteDesc').value.trim();
+            const driveUrl = document.getElementById('admNewNoteLink').value.trim();
+
+            if (!title || !driveUrl) {
+                alert("कृपया अध्याय/सब-फ़ोल्डर का नाम और Google Drive लिंक अवश्य भरें!");
+                return;
+            }
+
+            const newNote = {
+                id: "note_" + Date.now(),
+                category: category,
+                title: title,
+                desc: desc || "UCC आधिकारिक डिजिटल नोट्स",
+                driveUrl: driveUrl
+            };
+
+            ALL_NOTES.push(newNote);
+            try { localStorage.setItem('ucc_all_notes', JSON.stringify(ALL_NOTES)); } catch(e) {}
+
+            document.getElementById('admNewNoteTitle').value = "";
+            document.getElementById('admNewNoteDesc').value = "";
+            document.getElementById('admNewNoteLink').value = "";
+
+            renderAdminNotesList();
+            renderStudentNotesList();
+            updateAdminDashboardMetrics();
+            alert(`🎉 नया सब-फ़ोल्डर "${title}" [${category}] सफलतापूर्वक जुड़ गया!`);
+        }
+
+        function renderAdminNotesList() {
+            const box = document.getElementById('adminNotesListContainer');
+            if (!box) return;
+            box.innerHTML = "";
+
+            if (ALL_NOTES.length === 0) {
+                box.innerHTML = `<p style="font-size: 12px; color: #94a3b8; text-align: center; padding: 8px;">अभी कोई सब-फ़ोल्डर नहीं जोड़ा गया है।</p>`;
+                return;
+            }
+
+            ALL_NOTES.forEach((note, idx) => {
+                const item = document.createElement('div');
+                item.style.padding = "10px 12px";
+                item.style.background = "#f8fafc";
+                item.style.borderRadius = "10px";
+                item.style.border = "1px solid #e2e8f0";
+                item.style.display = "flex";
+                item.style.justifyContent = "space-between";
+                item.style.alignItems = "center";
+                item.innerHTML = `
+                    <div style="min-width:0; padding-right:8px;">
+                        <span class="badge badge-blue" style="font-size:9px; padding:2px 6px;">${note.category || 'सामान्य'}</span>
+                        <div style="font-weight:900; font-size:12px; color:#0f172a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px;">📁 ${note.title}</div>
+                        <div style="font-size:11px; color:#64748b;">${note.desc}</div>
+                    </div>
+                    <button onclick="deleteNotesFolder(${idx})" style="padding:5px 8px; background:#fee2e2; color:#b91c1c; border:1px solid #fca5a5; border-radius:6px; font-weight:800; font-size:11px; cursor:pointer; flex-shrink:0;">
+                        हटाएं
+                    </button>
+                `;
+                box.appendChild(item);
+            });
+        }
+
+        function deleteNotesFolder(idx) {
+            if (confirm("क्या आप इस सब-फ़ोल्डर को हटाना चाहते हैं?")) {
+                ALL_NOTES.splice(idx, 1);
+                try { localStorage.setItem('ucc_all_notes', JSON.stringify(ALL_NOTES)); } catch(e) {}
+                renderAdminNotesList();
+                renderStudentNotesList();
+                updateAdminDashboardMetrics();
+            }
+        }
+
+        function saveWebhookUrl() {
+            const val = document.getElementById('admWebhookUrlInput').value.trim();
+            GOOGLE_SHEET_WEBHOOK_URL = val;
+            try { localStorage.setItem('ucc_sheet_webhook', val); } catch(e) {}
+            alert("✓ Google Sheet Webhook URL सफलतापूर्वक सेव हो गया!");
+        }
+
+        // AI CODE TEST PARSER
+        function publishTestFromAiCode() {
+            const raw = document.getElementById('aiTestCodeInput').value.trim();
+            const errBox = document.getElementById('aiCodeErrorBox');
+            errBox.classList.add('hidden');
+            errBox.textContent = "";
+
+            if (!raw) {
+                errBox.textContent = "⚠️ कृपया पहले AI द्वारा दिया गया कोड बॉक्स में पेस्ट करें!";
+                errBox.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                let cleaned = raw;
+                if (cleaned.startsWith("```json")) cleaned = cleaned.replace(/^```json/, '');
+                if (cleaned.startsWith("```")) cleaned = cleaned.replace(/^```/, '');
+                if (cleaned.endsWith("```")) cleaned = cleaned.slice(0, -3);
+                cleaned = cleaned.trim();
+
+                const parsed = JSON.parse(cleaned);
+
+                if (!parsed.title || !parsed.questions || !Array.isArray(parsed.questions) || parsed.questions.length === 0) {
+                    throw new Error("कोड में 'title' या 'questions' की सूची सही नहीं है। कृपया AI से दोबारा कोड मांगें।");
+                }
+
+                const newTest = {
+                    id: parsed.id || ("test_" + Date.now()),
+                    title: parsed.title,
+                    subject: parsed.subject || "सामान्य टेस्ट",
+                    durationMin: Number(parsed.durationMin) || 60,
+                    isFreeDemo: !!parsed.isFreeDemo,
+                    isActive: true,
+                    questions: parsed.questions.map((q, idx) => ({
+                        id: q.id || (idx + 1),
+                        hi: q.hi || q.hindi || `प्रश्न ${idx + 1}`,
+                        en: q.en || q.english || "",
+                        opts: q.opts || q.options || ["A", "B", "C", "D"],
+                        cor: (q.cor !== undefined) ? Number(q.cor) : (Number(q.correct) || 0),
+                        sol: q.sol || q.solution || ""
+                    }))
+                };
+
+                ALL_TESTS.push(newTest);
+                saveTestsToStorage();
+
+                document.getElementById('aiTestCodeInput').value = "";
+                renderAdminTestsList();
+                renderStudentTestsList();
+                updateAdminDashboardMetrics();
+                switchAdminTab('testsList');
+
+                alert(`🎉 बधाई! नया टेस्ट "${newTest.title}" (${newTest.questions.length} प्रश्न) सफलतापूर्वक लाइव हो गया है!`);
+            } catch (err) {
+                errBox.textContent = `❌ कोड पढ़ने में त्रुटि: ${err.message}. कृपया पूरा कोड ठीक से कॉपी करके पेस्ट करें।`;
+                errBox.classList.remove('hidden');
+            }
+        }
+
+        function loadSampleAiCode() {
+            const sample = {
+                "title": "मॉक टेस्ट 2: प्रकाश परावर्तन एवं अपवर्तन (विज्ञान)",
+                "subject": "विज्ञान स्पेशल",
+                "durationMin": 45,
+                "isFreeDemo": false,
+                "isActive": true,
+                "questions": [
+                    {
+                        "id": 1,
+                        "hi": "समतल दर्पण की फोकस दूरी कितनी होती है?",
+                        "en": "What is the focal length of a plane mirror?",
+                        "opts": ["शून्य (0)", "अनंत (∞)", "25 सेमी", "-25 सेमी"],
+                        "cor": 1,
+                        "sol": "समतल दर्पण का वक्रता केंद्र अनंत पर होता है, अतः फोकस दूरी भी अनंत (Infinity) होती है।"
+                    },
+                    {
+                        "id": 2,
+                        "hi": "वाहनों में पीछे का दृश्य देखने के लिए किस दर्पण का उपयोग किया जाता है?",
+                        "en": "Which mirror is used as a rear-view mirror in vehicles?",
+                        "opts": ["अवतल दर्पण", "उत्तल दर्पण", "समतल दर्पण", "इनमें से कोई नहीं"],
+                        "cor": 1,
+                        "sol": "उत्तल दर्पण सदैव सीधा व छोटा प्रतिबिंब बनाता है और इसका दृष्टि क्षेत्र विस्तृत होता है।"
+                    }
+                ]
+            };
+            document.getElementById('aiTestCodeInput').value = JSON.stringify(sample, null, 2);
+            document.getElementById('aiCodeErrorBox').classList.add('hidden');
+        }
+
+        function copyTestCodeToClipboard(idx) {
+            const t = ALL_TESTS[idx];
+            if (!t) return;
+            const jsonStr = JSON.stringify({
+                title: t.title,
+                subject: t.subject,
+                durationMin: t.durationMin,
+                isFreeDemo: t.isFreeDemo,
+                isActive: t.isActive !== false,
+                questions: t.questions
+            }, null, 2);
+
+            navigator.clipboard.writeText(jsonStr).then(() => {
+                alert(`टेस्ट "${t.title}" का AI कोड कॉपी हो गया है!`);
+            }).catch(() => {
+                prompt("कोड कॉपी करें:", jsonStr);
+            });
+        }
+
+        function saveTestsToStorage() {
+            try { localStorage.setItem('ucc_all_tests', JSON.stringify(ALL_TESTS)); } catch(e) {}
+        }
+
+        function saveAdminNotice() {
+            const val = document.getElementById('adminNoticeField').value.trim();
+            if (val) {
+                document.getElementById('liveNoticeContent').textContent = val;
+                try { localStorage.setItem('ucc_admin_notice', val); } catch(e) {}
+                alert("नोटिस सफलतापूर्वक अपडेट हो गया!");
+            }
+        }
+    </script>
+</body>
+</html>

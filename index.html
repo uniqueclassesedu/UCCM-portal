@@ -2517,7 +2517,7 @@
             document.getElementById('modalAdminForgot').classList.add('hidden');
         };
 
-        function openAdminMasterStudio() {
+                async function openAdminMasterStudio() {
             // Populate Tab 7 & Tab 8 Settings
             document.getElementById('admAdsStatusSelect').value = appConfig.adsStatus || "ON";
             document.getElementById('admAdTitleInput').value = appConfig.adTitle || DEFAULT_CONFIG.adTitle;
@@ -2549,7 +2549,22 @@
             renderAdminCouponsList();
 
             document.getElementById('modalAdminStudio').classList.remove('hidden');
+
+            // 🚀 GOOGLE SHEET CLOUD LIVE SYNC (छात्रों की ताज़ा लिस्ट तुरंत क्लाउड से लाएँ)
+            if (appConfig.webhookUrl) {
+                try {
+                    const res = await fetch(`${appConfig.webhookUrl}?action=SYNC_DATA`);
+                    const cloudData = await res.json();
+                    if (cloudData && cloudData.students && Array.isArray(cloudData.students)) {
+                        registeredUsers = cloudData.students;
+                        saveStorage('ucc_users', registeredUsers);
+                        renderAdminStudentRows();
+                    }
+                } catch(e) {}
+            }
         }
+
+        
 
         function syncAllAdminCourseDropdowns() {
             const ids = ['admTestCourseSelect', 'admNoteCourseSelect', 'admVidCourseSelect'];

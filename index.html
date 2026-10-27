@@ -1504,14 +1504,32 @@
         // PART 3: AUTHENTICATION, CBT ENGINE, AD GATE & PAYMENT
         // ========================================================
 
-        // AUTHENTICATION FLOWS
-        document.getElementById('formLogin')?.addEventListener('submit', function(e) {
+        // AUTHENTICATION FLOWS (LOCAL + CLOUD MULTI-DEVICE LOGIN)
+        document.getElementById('formLogin')?.addEventListener('submit', async function(e) {
             e.preventDefault();
             const mob = document.getElementById('loginMob').value.trim();
             const pass = document.getElementById('loginPass').value.trim();
             const errBox = document.getElementById('loginErrorBox');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            
+            // 1. पहले इस फ़ोन की मेमोरी में चेक करें
+            let user = registeredUsers.find(u => u.mobile === mob && u.passcode === pass);
 
-            const user = registeredUsers.find(u => u.mobile === mob && u.passcode === pass);
+            // 2. यदि इस फ़ोन में नहीं मिला (जैसे दूसरा फ़ोन), तो Google Sheet क्लाउड से लाइव लाएं
+            if (!user && appConfig.webhookUrl) {
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = "सत्यापन हो रहा है... ⏳"; }
+                try {
+                    const res = await fetch(`${appConfig.webhookUrl}?action=SYNC_DATA`);
+                    const cloudData = await res.json();
+                    if (cloudData && cloudData.students && Array.isArray(cloudData.students)) {
+                        registeredUsers = cloudData.students;
+                        saveStorage('ucc_users', registeredUsers);
+                        user = registeredUsers.find(u => u.mobile === mob && u.passcode === pass);
+                    }
+                } catch (err) {}
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = "<span>पोर्टल में प्रवेश करें</span>"; }
+            }
+
             if (user) {
                 if (user.isBlocked) {
                     errBox.textContent = "⚠️ आपका खाता प्रबंधकीय रूप से निष्क्रिय (Blocked) किया गया है।";
@@ -1523,10 +1541,11 @@
                 saveStorage('ucc_active_user', currentUser);
                 enterStudentDashboard();
             } else {
-                errBox.textContent = "⚠️ अमान्य मोबाइल नंबर या गुप्त पासकोड! कृपया नया पंजीकरण करें या रीसेट करें।";
+                errBox.textContent = "⚠️ अमान्य मोबाइल नंबर या गुप्त पासकोड! कृपया सही विवरण दर्ज करें।";
                 errBox.classList.remove('hidden');
             }
         });
+
 
         document.getElementById('formRegister')?.addEventListener('submit', function(e) {
             e.preventDefault();
